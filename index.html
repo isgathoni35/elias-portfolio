@@ -3,13 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias Warutere Gathoni | Portfolio</title>
+    <title>Elias Warutere Gathoni | Bio & Code</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Elias Warutere Gathoni</h1>
-        <p>Biochemistry & Computational Biology</p>
-    </div>
+
+    <nav class="navbar">
+        <div class="logo">EWG<span class="dot">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p class="greeting">Wagwan, I'm</p>
+            <h1>Elias Warutere Gathoni</h1>
+            <h2 class="subtitle">Biochemistry Student <span class="accent">&</span> Computational Biology Enthusiast</h2>
+            <p class="bio-text">
+                Bridging the gap between <strong>Molecular Science</strong> and <strong>Software Engineering</strong>. 
+                I build digital tools to solve biological problems.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn secondary">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="section-title">
+            <h2>01. About Me</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I am a final-year B.Sc. Biochemistry student at the <strong>University of Nairobi</strong> (Class of 2026). 
+                    While my academic foundation is in the lab, my curiosity led me to teach myself <strong>Python</strong> and <strong>Web Development</strong>.
+                </p>
+                <p>
+                    I don't just memorize pathways; I code them. My goal is to leverage Machine Learning and Data Analysis to advance drug discovery and molecular modelling.
+                </p>
+                <p>
+                    When I'm not running docking simulations or debugging code, you can find me analyzing Rugby tactics or watching American Football.
+                </p>
+            </div>
+            <div class="about-skills-list">
+                <h3>Languages</h3>
+                <ul>
+                    <li>English (Fluent)</li>
+                    <li>Swahili (Fluent)</li>
+                    <li>Kikuyu (Native)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section alt-bg">
+        <div class="section-title">
+            <h2>02. Technical Arsenal</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>🧬 Life Sciences</h3>
+                <ul>
+                    <li>Biochemistry</li>
+                    <li>Molecular Docking</li>
+                    <li>Bioinformatics</li>
+                    <li>Lab Safety & Protocols</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>💻 Development</h3>
+                <ul>
+                    <li>Python (Data Science)</li>
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Git & GitHub</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>🧠 AI & Tools</h3>
+                <ul>
+                    <li>Machine Learning Basics</li>
+                    <li>Generative AI</li>
+                    <li>VS Code / Codespaces</li>
+                    <li>Vercel Deployment</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="section-title">
+            <h2>03. Featured Projects</h2>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-info">
+                <span class="project-type">Computational Biology (Capstone)</span>
+                <h3>Garlic vs. Aspergillus Flavus</h3>
+                <p>
+                    A theoretical study using <strong>Molecular Docking</strong> to investigate the efficacy of 
+                    secondary metabolites of Garlic (<em>Allium sativum</em>) in inhibiting the proteins of the fungus <em>Aspergillus flavus</em>.
+                </p>
+                <ul class="tech-stack">
+                    <li>Python</li>
+                    <li>Docking Software</li>
+                    <li>Data Analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-info">
+                <span class="project-type">Web Development</span>
+                <h3>Personal Developer Portfolio</h3>
+                <p>
+                    You are looking at it. A responsive, high-performance web application designed to showcase my dual background. 
+                    Deployed via CI/CD pipeline on Vercel.
+                </p>
+                <ul class="tech-stack">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Vercel</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Let's Connect</h2>
+            <p>Open to opportunities in Biotech, Data Analysis, and Web Dev.</p>
+            <a href="mailto:your-email@example.com" class="email-link">Say Hello</a>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">X (Twitter)</a>
+            </div>
+            <p class="copyright">
+                Designed & Built by Elias Warutere Gathoni &copy; 2026
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
