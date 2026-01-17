@@ -224,3 +224,19 @@ footer {
     .navbar { padding: 20px; }
     .hero { padding: 0 20px; }
 }
+
+/* Profile Picture */
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures image doesn't stretch */
+    border: 2px solid var(--accent-color); /* The Teal Border */
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.3); /* Soft Teal Glow */
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
