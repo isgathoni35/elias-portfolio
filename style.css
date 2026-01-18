@@ -165,7 +165,12 @@ ul { list-style: none; padding: 0; }
     transition: transform 0.3s ease;
 }
 
-.skill-card:hover { transform: translateY(-5px); }
+.skill-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid var(--accent-color); /* Adds a teal border */
+    box-shadow: 0 10px 30px -15px rgba(100, 255, 218, 0.3); /* Adds a teal glow */
+}
+
 .skill-card h3 { color: var(--heading-color); }
 
 .skill-card ul li {
