@@ -240,3 +240,39 @@ footer {
 .profile-pic:hover {
     transform: scale(1.05); /* Slight zoom on hover */
 }
+
+/* Experience Section */
+.job-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--accent-color); /* Green line on the left */
+    border-radius: 0 5px 5px 0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.job-header h3 {
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    margin: 0;
+}
+
+.company {
+    color: var(--accent-color);
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+}
+
+.date {
+    display: block;
+    font-family: var(--font-code);
+    font-size: 0.8rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
