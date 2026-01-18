@@ -276,3 +276,26 @@ footer {
     color: var(--text-color);
     margin-bottom: 10px;
 }
+
+/* NEW: Bullet points styling */
+.job-details {
+    margin-top: 15px;
+    padding-left: 0;
+}
+
+.job-details li {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+}
+
+.job-details li::before {
+    content: "▹"; /* The cool arrow */
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
