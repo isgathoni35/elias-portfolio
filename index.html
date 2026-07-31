@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias Warutere Gathoni | Bio & Code</title>
+    <title>Elias Warutere Gathoni | Biochemist &amp; Developer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>">
-    
-    <meta name="description" content="Portfolio of Elias Warutere Gathoni - Biochemistry Student & Computational Biology Enthusiast.">
-    <meta property="og:title" content="Elias Warutere Gathoni | Bio & Code">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Elias Warutere Gathoni — Final-year Biochemistry student at the University of Nairobi, building digital tools at the intersection of Molecular Science and Software Engineering.">
+    <meta property="og:title" content="Elias Warutere Gathoni | Biochemist &amp; Developer">
     <meta property="og:description" content="Bridging the gap between Molecular Science and Software Engineering. View my projects and research.">
-    <meta property="og:image" content="https://elias-gathoni.vercel.app/me.jpg"> <meta property="og:url" content="https://elias-gathoni.vercel.app/">
+    <meta property="og:image" content="https://elias-gathoni.vercel.app/me.jpg">
+    <meta property="og:url" content="https://elias-gathoni.vercel.app/">
     <meta property="og:type" content="website">
-    
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Vercel Web Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -26,252 +29,336 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">EWG<span class="dot">.</span></div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- ── Navbar ────────────────────────────────────────────── -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="nav-logo" aria-label="Elias Warutere Gathoni — home">EWG<span class="dot">.</span></a>
+
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="#about" id="nav-about">About</a></li>
+                <li><a href="#projects" id="nav-projects">Projects</a></li>
+                <li><a href="#skills" id="nav-skills">Skills</a></li>
+                <li><a href="#experience" id="nav-experience">Experience</a></li>
+                <li><a href="#contact" id="nav-contact">Contact</a></li>
+            </ul>
+
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <img src="profile_pic.jpg" alt="Elias Warutere Gathoni" class="profile-pic">
-            <p class="greeting">Wagwan, I'm</p>
-            <h1>Elias Warutere Gathoni</h1>
-            <h2 class="subtitle">Biochemistry Student <span class="accent">&</span> Computational Biology Enthusiast</h2>
-            <p class="bio-text">
-                Bridging the gap between <strong>Molecular Science</strong> and <strong>Software Engineering</strong>. 
-                I build digital tools to solve biological problems.
-            </p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary">View Projects</a>
-                <a href="resume.pdf" class="btn secondary" download>Download CV</a>
+    <!-- ── Mobile Menu Overlay ──────────────────────────────── -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+        <a href="#about"      id="m-about">About</a>
+        <a href="#projects"   id="m-projects">Projects</a>
+        <a href="#skills"     id="m-skills">Skills</a>
+        <a href="#experience" id="m-experience">Experience</a>
+        <a href="#contact"    id="m-contact">Contact</a>
+    </div>
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <header class="hero" id="hero">
+        <div class="container">
+            <div class="hero-text reveal">
+                <span class="hero-label">// hello world</span>
+                <h1>Elias Warutere<br>Gathoni</h1>
+                <p class="hero-subtitle">
+                    Biochemistry Student <span class="accent">&amp;</span> Computational Biology Enthusiast
+                </p>
+                <p class="hero-bio">
+                    Bridging the gap between <strong>Molecular Science</strong> and <strong>Software Engineering</strong>.
+                    I build digital tools to solve biological problems.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn-primary" id="hero-cta-projects">View Projects &rarr;</a>
+                    <a href="resume.pdf" class="btn-text" id="hero-cta-cv" download>Download CV</a>
+                </div>
+            </div>
+
+            <div class="hero-photo-wrap reveal">
+                <img
+                    src="profile_pic.jpg"
+                    alt="Elias Warutere Gathoni — profile photo"
+                    class="profile-pic"
+                    width="240"
+                    height="240"
+                >
             </div>
         </div>
     </header>
 
+    <!-- ── About ─────────────────────────────────────────────── -->
     <section id="about" class="section">
-        <div class="section-title">
-            <h2>01. About Me</h2>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>
-                    I am a final-year B.Sc. Biochemistry student at the <strong>University of Nairobi</strong> (Class of 2026). 
-                    While my academic foundation is in the lab, my curiosity led me to teach myself <strong>Python</strong> and <strong>Web Development</strong>.
-                </p>
-                <p>
-                    I don't just memorize pathways; I code them. My goal is to leverage Machine Learning and Data Analysis to advance drug discovery and molecular modelling.
-                </p>
-                <p>
-                    When I'm not running docking simulations or debugging code, you can find me analyzing Rugby tactics or watching American Football.
-                </p>
+        <div class="container">
+            <div class="section-heading reveal">
+                <h2>01. About</h2>
             </div>
-            <div class="about-skills-list">
-                <h3>Languages</h3>
-                <ul>
-                    <li>English (Fluent)</li>
-                    <li>Swahili (Fluent)</li>
-                </ul>
+
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        I am a final-year B.Sc. Biochemistry student at the <strong>University of Nairobi</strong> (Class of 2026).
+                        While my academic foundation is in the lab, my curiosity led me to teach myself <strong>Python</strong> and <strong>Web Development</strong>.
+                    </p>
+                    <p>
+                        I don't just memorize pathways; I code them. My goal is to leverage Machine Learning and Data Analysis to advance drug discovery and molecular modelling.
+                    </p>
+                    <p>
+                        When I'm not running docking simulations or debugging code, you can find me analyzing Rugby tactics or watching American Football.
+                    </p>
+
+                    <div class="about-langs">
+                        <h4>Languages</h4>
+                        <ul>
+                            <li>English (Fluent)</li>
+                            <li>Swahili (Fluent)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-stats reveal-stagger">
+                    <div class="stat-box">
+                        <span class="stat-value">2026</span>
+                        <span class="stat-label">Class of &mdash; University of Nairobi</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">BSc.</span>
+                        <span class="stat-label">Biochemistry &amp; Computational Biology</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">5+</span>
+                        <span class="stat-label">Projects shipped or in progress</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section alt-bg">
-        <div class="section-title">
-            <h2>02. Technical Arsenal</h2>
-        </div>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>🧬 Life Sciences</h3>
-                <ul>
-                    <li>Biochemistry</li>
-                    <li>Molecular Docking</li>
-                    <li>Bioinformatics</li>
-                    <li>Lab Safety & Protocols</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>💻 Development</h3>
-                <ul>
-                    <li>Python (Data Science)</li>
-                    <li>HTML5 & CSS3</li>
-                    <li>JavaScript</li>
-                    <li>Git & GitHub</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>🧠 AI & Tools</h3>
-                <ul>
-                    <li>Machine Learning Basics</li>
-                    <li>Generative AI</li>
-                    <li>VS Code / Codespaces</li>
-                    <li>Vercel Deployment</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section">
-        <div class="section-title">
-            <h2>03. Experience</h2>
-        </div>
-        <div class="experience-grid">
-            
-            <div class="job-card">
-                <div class="job-header">
-                    <h3>Bioinformatics Data Analyst (Job Sim)</h3>
-                    <span class="company">LifeArc (via Forage)</span>
-                </div>
-                <span class="date">Jan 2026</span>
-                <ul class="job-details">
-                    <li>Conducted data analysis on biological datasets to identify potential drug targets and disease pathways.</li>
-                    <li>Utilized Python (Pandas/Matplotlib) to visualize complex genomic trends for stakeholder presentations.</li>
-                    <li>Simulated the drug discovery pipeline, applying critical thinking to real-world biomedical problems.</li>
-                </ul>
+    <!-- ── Projects ──────────────────────────────────────────── -->
+    <section id="projects" class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-heading reveal">
+                <h2>02. Projects</h2>
             </div>
 
-            <div class="job-card">
-                <div class="job-header">
-                    <h3>IT Support Intern</h3>
-                    <span class="company">Dejavu Technologies</span>
-                </div>
-                <span class="date">Jul 2024 – Dec 2024</span>
-                <ul class="job-details">
-                    <li>Diagnosed and resolved hardware/software issues, ensuring 99% uptime for internal systems.</li>
-                    <li>Configured network protocols and managed system updates in a fast-paced technical environment.</li>
-                    <li>Collaborated with senior IT staff to streamline troubleshooting documentation and user support tickets.</li>
-                </ul>
-            </div>
+            <div class="projects-list">
 
-        </div>
-    </section>
+                <!-- G2G Hub -->
+                <article class="project-card reveal" id="project-g2g">
+                    <div class="project-meta">
+                        <span class="project-type">Web Development</span>
+                        <span class="badge badge-live">Live</span>
+                    </div>
+                    <h3>G2G Biochemistry Community Hub</h3>
+                    <p>
+                        A full-stack community platform bridging the gap between academic learning and professional excellence
+                        for women in Biochemistry at the University of Nairobi.
+                        The platform facilitates resource sharing, peer-to-peer discussion, and professional networking.
+                    </p>
+                    <ul class="tech-pills">
+                        <li class="tech-pill">Next.js 15+</li>
+                        <li class="tech-pill">Tailwind CSS</li>
+                        <li class="tech-pill">Supabase (BaaS)</li>
+                        <li class="tech-pill">Supabase Auth</li>
+                        <li class="tech-pill">Vercel</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://g2g-community.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" id="link-g2g-app">Launch App &#8599;</a>
+                    </div>
+                </article>
 
-    <section id="projects" class="section">
-        <div class="section-title">
-            <h2>04. Featured Projects</h2>
-        </div>
+                <!-- DNA Counter -->
+                <article class="project-card reveal" id="project-dna">
+                    <div class="project-meta">
+                        <span class="project-type">Bioinformatics Tool</span>
+                        <span class="badge badge-live">Live</span>
+                    </div>
+                    <h3>DNA Nucleotide Counter</h3>
+                    <p>
+                        A web application that quantifies nucleotide composition (A, T, G, C) from raw DNA sequences
+                        and visualizes the results. Built to streamline genomic data analysis.
+                    </p>
+                    <ul class="tech-pills">
+                        <li class="tech-pill">Python</li>
+                        <li class="tech-pill">Streamlit</li>
+                        <li class="tech-pill">Pandas</li>
+                        <li class="tech-pill">Altair</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://dna-app-elias.streamlit.app" target="_blank" rel="noopener noreferrer" class="project-link" id="link-dna-app">Launch App &#8599;</a>
+                        <a href="https://github.com/isgathoni35/dna-app" target="_blank" rel="noopener noreferrer" class="project-link" id="link-dna-source">Source Code</a>
+                    </div>
+                </article>
 
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-header">
-                    <span class="project-type">Web Development</span>
-                    <span style="border: 1px solid var(--accent-color); color: var(--accent-color); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; margin-left: 10px; vertical-align: middle;">Live</span>
+                <!-- Garlic Research -->
+                <article class="project-card reveal" id="project-garlic">
+                    <div class="project-meta">
+                        <span class="project-type">Capstone Research</span>
+                        <span class="badge badge-ongoing">Ongoing</span>
+                    </div>
+                    <h3>Garlic Metabolites vs. <em>A. flavus</em></h3>
+                    <p>
+                        Investigating the molecular docking potential of <em>Allium sativum</em> secondary metabolites
+                        (e.g., Allicin, Ajoene) against <em>Aspergillus flavus</em> proteins to identify natural antifungal inhibitors.
+                    </p>
+                    <ul class="tech-pills">
+                        <li class="tech-pill">AutoDock Vina</li>
+                        <li class="tech-pill">PyRx</li>
+                        <li class="tech-pill">Discovery Studio</li>
+                        <li class="tech-pill">Python</li>
+                    </ul>
+                </article>
 
-                </div>
-                <h3>G2G Biochemistry Community Hub</h3>
-                <p>A full-stack community platform bridging the gap between academic learning and professional excellence for women in Biochemistry at the University of Nairobi.
-                    <br>
-                    The platform facilitates resource sharing, peer-to-peer discussion, and professional networking.
-                </p>
-                <ul class="tech-stack">
-                    <li>Next.js 15+</li> 
-                    <li>Tailwind CSS</li>
-                    <li>Supabase (Baas)</li>
-                    <li>Supabase Auth</li>
-                    <li>Vercel</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://g2g-community.vercel.app/" target="_blank" class="project-link">Launch App ↗</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-header">
-                    <span class="project-type">Capstone Research (In Progress)</span>
-                    <span style="border: 1px solid var(--accent-color); color: var(--accent-color); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; margin-left: 10px; vertical-align: middle;">Ongoing</span>
-                </div>
-                <h3>Garlic Metabolites vs. A. flavus</h3>
-                <p>
-                    Investigating the molecular docking potential of <em>Allium sativum</em> secondary metabolites (e.g., Allicin, Ajoene) 
-                    against <em>Aspergillus flavus</em> proteins to identify natural antifungal inhibitors.
-                </p>
-                <ul class="tech-stack">
-                    <li>AutoDock Vina</li> 
-                    <li>PyRx</li>
-                    <li>Discovery Studio</li>
-                    <li>Python</li>
-                </ul>
-            </div>
-        </div>
+                <!-- Personal Portfolio -->
+                <article class="project-card reveal" id="project-portfolio">
+                    <div class="project-meta">
+                        <span class="project-type">Web Development</span>
+                        <span class="badge badge-live">Live</span>
+                    </div>
+                    <h3>Personal Developer Portfolio</h3>
+                    <p>
+                        You are looking at it. A responsive, high-performance portfolio designed to showcase my dual background
+                        in Biochemistry and Software Engineering. Deployed via CI/CD pipeline on Vercel.
+                    </p>
+                    <ul class="tech-pills">
+                        <li class="tech-pill">HTML5</li>
+                        <li class="tech-pill">CSS3</li>
+                        <li class="tech-pill">JavaScript</li>
+                        <li class="tech-pill">Vercel</li>
+                    </ul>
+                </article>
 
-        <div class="project-card">
-            <div class="project-info">
-                <span class="project-type">Web Development</span>
-                <h3>Personal Developer Portfolio</h3>
-                <p>
-                    You are looking at it. A responsive, high-performance web application designed to showcase my dual background. 
-                    Deployed via CI/CD pipeline on Vercel.
-                </p>
-                <ul class="tech-stack">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript</li>
-                    <li>Vercel</li>
-                </ul>
-            </div>
-        </div>
+                <!-- Generative AI Concept -->
+                <article class="project-card reveal" id="project-genai">
+                    <div class="project-meta">
+                        <span class="project-type">Machine Learning (Concept)</span>
+                        <span class="badge badge-upcoming">Upcoming</span>
+                    </div>
+                    <h3>Generative AI for Protein Folding</h3>
+                    <p>
+                        A planned exploration into using Large Language Models (LLMs) to predict protein structures
+                        based on amino acid sequences, extending my work on molecular docking.
+                    </p>
+                    <ul class="tech-pills">
+                        <li class="tech-pill">Python</li>
+                        <li class="tech-pill">TensorFlow</li>
+                        <li class="tech-pill">PyTorch</li>
+                    </ul>
+                </article>
 
-
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-header">
-                    <span class="project-type">Bioinformatics Tool</span>
-                    <span style="border: 1px solid var(--accent-color); color: var(--accent-color); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; margin-left: 10px; vertical-align: middle;">Live</span>
-                </div>
-                <h3>DNA Nucleotide Counter</h3>
-                <p>
-                    A web application that quantifies nucleotide composition (A, T, G, C) from raw DNA sequences and visualizes the results. Built to streamline genomic data analysis.
-                </p>
-                <ul class="tech-stack">
-                    <li>Python</li>
-                    <li>Streamlit</li>
-                    <li>Pandas</li>
-                    <li>Altair</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://dna-app-elias.streamlit.app" target="_blank" class="project-link">Launch App ↗</a>
-                    <a href="https://github.com/isgathoni35/dna-app" target="_blank" class="project-link">Source Code</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-info">
-                <div class="project-header">
-                    <span class="project-type">Machine Learning (Concept)</span>
-                    <span style="border: 1px solid var(--text-color); color: var(--text-color); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; margin-left: 10px; vertical-align: middle;">Upcoming</span>
-                </div>
-                <h3>Generative AI for Protein Folding</h3>
-                <p>
-                    A planned exploration into using Large Language Models (LLMs) to predict protein structures based on amino acid sequences, extending my work on molecular docking.
-                </p>
-                <ul class="tech-stack">
-                    <li>Python</li>
-                    <li>TensorFlow</li>
-                    <li>PyTorch</li>
-                </ul>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>Let's Connect</h2>
-            <p>Open to opportunities in Biotech, Data Analysis, and Web Dev.</p>
-            <a href="mailto:isgathoni35@gmail.com" class="email-link">Say Hello</a>
-            <div class="social-links">
-                <a href="https://github.com/isgathoni35">GitHub</a>
-                <a href="https://linkedin.com/in/elias-warutere-081854254">LinkedIn</a>
-                <a href="https://x.com/warutere_elias">X (Twitter)</a>
+    <!-- ── Skills ─────────────────────────────────────────────── -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-heading reveal">
+                <h2>03. Skills</h2>
             </div>
-            <p class="copyright">
-                Designed & Built by Elias Warutere Gathoni &copy; 2026
+
+            <div class="skills-grid reveal-stagger">
+
+                <div class="skill-card">
+                    <div class="card-icon">&#x1F9EC;</div>
+                    <h3>Life Sciences</h3>
+                    <ul>
+                        <li>Biochemistry</li>
+                        <li>Molecular Docking</li>
+                        <li>Bioinformatics</li>
+                        <li>Lab Safety &amp; Protocols</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-icon">&#x1F4BB;</div>
+                    <h3>Development</h3>
+                    <ul>
+                        <li>Python (Data Science)</li>
+                        <li>HTML5 &amp; CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Git &amp; GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="card-icon">&#x1F9E0;</div>
+                    <h3>AI &amp; Tools</h3>
+                    <ul>
+                        <li>Machine Learning Basics</li>
+                        <li>Generative AI</li>
+                        <li>VS Code / Codespaces</li>
+                        <li>Vercel Deployment</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Experience ─────────────────────────────────────────── -->
+    <section id="experience" class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-heading reveal">
+                <h2>04. Experience</h2>
+            </div>
+
+            <div class="experience-list">
+
+                <article class="job-card reveal" id="job-lifearc">
+                    <span class="job-company">LifeArc (via Forage)</span>
+                    <span class="job-title">Bioinformatics Data Analyst (Job Simulation)</span>
+                    <span class="job-date">Jan 2026</span>
+                    <ul class="job-bullets">
+                        <li>Conducted data analysis on biological datasets to identify potential drug targets and disease pathways.</li>
+                        <li>Utilised Python (Pandas / Matplotlib) to visualize complex genomic trends for stakeholder presentations.</li>
+                        <li>Simulated the drug discovery pipeline, applying critical thinking to real-world biomedical problems.</li>
+                    </ul>
+                </article>
+
+                <article class="job-card reveal" id="job-dejavu">
+                    <span class="job-company">Dejavu Technologies</span>
+                    <span class="job-title">IT Support Intern</span>
+                    <span class="job-date">Jul 2024 &ndash; Dec 2024</span>
+                    <ul class="job-bullets">
+                        <li>Diagnosed and resolved hardware/software issues, ensuring 99% uptime for internal systems.</li>
+                        <li>Configured network protocols and managed system updates in a fast-paced technical environment.</li>
+                        <li>Collaborated with senior IT staff to streamline troubleshooting documentation and user support tickets.</li>
+                    </ul>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Contact / Footer ───────────────────────────────────── -->
+    <footer id="contact" class="contact">
+        <div class="container">
+            <div class="section-heading reveal">
+                <h2>05. Contact</h2>
+            </div>
+
+            <h3 class="contact-heading reveal">Get In Touch</h3>
+            <p class="contact-tagline reveal">
+                Open to opportunities in Biotech, Data Analysis, and Web Development.
+                Whether you have a question or just want to say hi &mdash; my inbox is always open.
+            </p>
+
+            <a href="mailto:isgathoni35@gmail.com" class="btn-email reveal" id="contact-email">
+                Say Hello &rarr;
+            </a>
+
+            <div class="social-links reveal">
+                <a href="https://github.com/isgathoni35" target="_blank" rel="noopener noreferrer" id="social-github" aria-label="GitHub profile">GitHub</a>
+                <a href="https://linkedin.com/in/elias-warutere-081854254" target="_blank" rel="noopener noreferrer" id="social-linkedin" aria-label="LinkedIn profile">LinkedIn</a>
+                <a href="https://x.com/warutere_elias" target="_blank" rel="noopener noreferrer" id="social-x" aria-label="X (Twitter) profile">X (Twitter)</a>
+            </div>
+
+            <p class="footer-copy">
+                Designed &amp; Built by Elias Warutere Gathoni &copy; 2026
             </p>
         </div>
     </footer>
