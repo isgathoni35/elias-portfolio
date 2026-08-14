@@ -52,23 +52,26 @@ Elias can read and update these at any time.
 ### Colors
 | Token              | Value     | Usage                          |
 |--------------------|-----------|--------------------------------|
-| `--bg`             | `#0d1117` | Page background                |
-| `--surface`        | `#161b22` | Cards, navbar                  |
-| `--border`         | `#30363d` | Card borders, dividers         |
-| `--text-primary`   | `#e6edf3` | Headings                       |
-| `--text-muted`     | `#8b949e` | Body text, dates               |
-| `--accent`         | `#64ffda` | Teal — logo, links, highlights |
-| `--badge-live`     | `#64ffda` | "Live" status badge            |
-| `--badge-ongoing`  | `#f0a500` | "Ongoing" status badge         |
-| `--badge-upcoming` | `#8b949e` | "Upcoming" status badge        |
+| `--bg`             | `#080c10` | Page background (OLED dark)    |
+| `--surface`        | `#0f1720` | Cards, navbar, panels          |
+| `--border`         | `rgba(255,255,255,0.08)` | Card borders, dividers |
+| `--border-glow`    | `rgba(16,185,129,0.35)`  | Card hover glow border |
+| `--text-primary`   | `#f8fafc` | Headings                       |
+| `--text-muted`     | `#94a3b8` | Body text, dates               |
+| `--accent`         | `#10b981` | Vivid Emerald — logo, buttons  |
+| `--accent-light`   | `#34d399` | Light Emerald hover highlights |
+| `--accent-lime`    | `#84cc16` | Lime dot accent                |
+| `--badge-live`     | `#10b981` | "Live" status badge            |
+| `--badge-ongoing`  | `#fbbf24` | "Ongoing" status badge         |
+| `--badge-upcoming` | `#94a3b8` | "Upcoming" status badge        |
 
 ### Fonts
 - **Inter** — headings and body text
 - **Fira Code** — logo, section numbers, tech tags (monospace)
 
 ### Layout
-- Max content width: `900px`, centered
-- Section padding: `100px 0` desktop / `60px 0` mobile
+- Max content width: `960px`, centered
+- Section padding: `110px 0` desktop / `60px 0` mobile
 - Mobile breakpoint: `≤ 768px`
 
 ---
@@ -78,4 +81,4 @@ Elias can read and update these at any time.
 - [x] Desktop hero: photo on the **right column** (text left, photo right)
 - [x] Section order: **About → Projects → Skills → Experience → Contact**
 - [x] Keep all 5 project cards (G2G Hub, DNA Counter, Garlic Research, Personal Portfolio, Generative AI concept)
-- [x] Color palette `#0d1117` base **confirmed**
+- [x] Color palette upgraded to **OLED Minimalist + Vivid Emerald (#080c10 / #10b981 / #84cc16)** for modern, vibrant contrast.
