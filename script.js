@@ -343,7 +343,7 @@
     portfolio: {
       tag: 'WEB ENGINEERING // VANILLA CYBER BIOTECH SYSTEM',
       title: 'Cyber Biotech Developer Portfolio',
-      banner: 'assets/projects/portfolio.jpg',
+      banner: 'assets/projects/portfolio.png',
       desc: 'A custom, performance-engineered personal portfolio articulating the convergence of Biochemistry and Software Engineering. Features zero heavy runtime dependencies and custom HTML5 particle physics.',
       problem: 'Generic portfolio templates fail to convey the unique intersection of computational molecular science and modern software engineering.',
       architecture: [
