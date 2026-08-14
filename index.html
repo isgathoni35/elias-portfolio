@@ -178,12 +178,25 @@
                 <h2><span class="head-num">02.</span> Featured Projects</h2>
             </div>
 
-            <div class="projects-grid">
+            <!-- Project Category Filter Tabs -->
+            <div class="project-filters reveal" id="project-filters">
+                <button class="filter-tab active" data-filter="all">
+                    <span class="tab-bracket">[</span> ALL (5) <span class="tab-bracket">]</span>
+                </button>
+                <button class="filter-tab" data-filter="bio">
+                    <span class="tab-bracket">[</span> BIOINFORMATICS &amp; DOCKING (3) <span class="tab-bracket">]</span>
+                </button>
+                <button class="filter-tab" data-filter="web">
+                    <span class="tab-bracket">[</span> FULL-STACK WEB APPS (2) <span class="tab-bracket">]</span>
+                </button>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
 
                 <!-- G2G Hub -->
-                <article class="project-card reveal" id="project-g2g">
+                <article class="project-card reveal" id="project-g2g" data-category="web">
                     <div class="project-thumb-wrap">
-                        <img src="assets/projects/g2g.jpg" alt="G2G Biochemistry Community Hub Preview" class="project-thumb" loading="lazy">
+                        <img src="assets/projects/g2g.png" alt="G2G Biochemistry Community Hub Preview" class="project-thumb" loading="lazy">
                         <div class="thumb-overlay"></div>
                         <span class="badge badge-live"><span class="badge-dot"></span> Live Application</span>
                     </div>
@@ -207,12 +220,15 @@
                             <a href="https://g2g-community.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" id="link-g2g-app">
                                 Launch Platform <span>&#8599;</span>
                             </a>
+                            <button class="project-link link-details" data-project="g2g">
+                                Architecture &amp; Specs <span>&rarr;</span>
+                            </button>
                         </div>
                     </div>
                 </article>
 
                 <!-- DNA Counter -->
-                <article class="project-card reveal" id="project-dna">
+                <article class="project-card reveal" id="project-dna" data-category="bio">
                     <div class="project-thumb-wrap">
                         <img src="assets/projects/dna.jpg" alt="DNA Nucleotide Counter Dashboard Preview" class="project-thumb" loading="lazy">
                         <div class="thumb-overlay"></div>
@@ -237,15 +253,18 @@
                             <a href="https://dna-app-elias.streamlit.app" target="_blank" rel="noopener noreferrer" class="project-link" id="link-dna-app">
                                 Launch Tool <span>&#8599;</span>
                             </a>
+                            <button class="project-link link-details" data-project="dna">
+                                Architecture &amp; Specs <span>&rarr;</span>
+                            </button>
                             <a href="https://github.com/isgathoni35/dna-app" target="_blank" rel="noopener noreferrer" class="project-link link-ghost" id="link-dna-source">
-                                Source Code <span>&rarr;</span>
+                                Source Code <span>&#8599;</span>
                             </a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Garlic Research -->
-                <article class="project-card reveal" id="project-garlic">
+                <article class="project-card reveal" id="project-garlic" data-category="bio">
                     <div class="project-thumb-wrap">
                         <img src="assets/projects/garlic.jpg" alt="Molecular Docking Simulation Preview" class="project-thumb" loading="lazy">
                         <div class="thumb-overlay"></div>
@@ -265,11 +284,16 @@
                             <li class="tech-pill">Discovery Studio</li>
                             <li class="tech-pill">Python Data Pipeline</li>
                         </ul>
+                        <div class="project-links">
+                            <button class="project-link link-details" data-project="garlic">
+                                Research Details &amp; Docking Scores <span>&rarr;</span>
+                            </button>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Personal Portfolio -->
-                <article class="project-card reveal" id="project-portfolio">
+                <article class="project-card reveal" id="project-portfolio" data-category="web">
                     <div class="project-thumb-wrap">
                         <img src="assets/projects/portfolio.jpg" alt="Developer Portfolio Interface Preview" class="project-thumb" loading="lazy">
                         <div class="thumb-overlay"></div>
@@ -289,11 +313,16 @@
                             <li class="tech-pill">JavaScript ES6</li>
                             <li class="tech-pill">CI/CD &amp; Vercel</li>
                         </ul>
+                        <div class="project-links">
+                            <button class="project-link link-details" data-project="portfolio">
+                                Architecture &amp; Specs <span>&rarr;</span>
+                            </button>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Generative AI Concept -->
-                <article class="project-card reveal" id="project-genai">
+                <article class="project-card reveal" id="project-genai" data-category="bio">
                     <div class="project-thumb-wrap">
                         <img src="assets/projects/genai.jpg" alt="Generative AI Protein Folding Model Preview" class="project-thumb" loading="lazy">
                         <div class="thumb-overlay"></div>
@@ -313,6 +342,11 @@
                             <li class="tech-pill">Transformers</li>
                             <li class="tech-pill">Structural Bio</li>
                         </ul>
+                        <div class="project-links">
+                            <button class="project-link link-details" data-project="genai">
+                                Model Architecture &amp; Roadmap <span>&rarr;</span>
+                            </button>
+                        </div>
                     </div>
                 </article>
 
@@ -520,6 +554,17 @@
                 <span>Navigate <kbd>&uarr;</kbd> <kbd>&darr;</kbd></span>
                 <span>Select <kbd>&crarr;</kbd></span>
                 <span>Close <kbd>ESC</kbd></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Interactive Project Quick-View Modal ───────────────── -->
+    <div class="project-modal-backdrop" id="project-modal-backdrop" aria-hidden="true">
+        <div class="project-modal" role="dialog" aria-modal="true" aria-label="Project Details">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">[ ESC / &times; ]</button>
+            
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamically injected by script.js -->
             </div>
         </div>
     </div>

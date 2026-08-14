@@ -1,7 +1,8 @@
 /* ============================================================
    Elias Warutere Gathoni — Portfolio
    script.js — Interactive Cyber Biotech Particle Canvas, HUD,
-               Typewriter Decrypt, 3D Tilt, and Command Palette
+               Typewriter Decrypt, 3D Tilt, Category Filter Tabs,
+               Cursor Border Tracker, Quick-View Modal, and Command Palette
    ============================================================ */
 
 (function () {
@@ -16,11 +17,20 @@
   const sections          = document.querySelectorAll('section[id], footer[id], header[id]');
   const canvas            = document.getElementById('bg-canvas');
   const typewriterEl      = document.getElementById('hero-typewriter');
+  
+  // Command Palette
   const cmdBackdrop       = document.getElementById('cmd-palette-backdrop');
   const cmdInput          = document.getElementById('cmd-input');
   const cmdResults        = document.getElementById('cmd-results');
   const openCmdBtn        = document.getElementById('open-cmd-palette');
   const mobileOpenCmdBtn  = document.getElementById('mobile-open-cmd');
+
+  // Project Filter Tabs & Quick-View Modal
+  const filterTabs        = document.querySelectorAll('.filter-tab');
+  const projectCards      = document.querySelectorAll('.project-card');
+  const modalBackdrop     = document.getElementById('project-modal-backdrop');
+  const modalCloseBtn     = document.getElementById('modal-close-btn');
+  const modalBody         = document.getElementById('modal-body');
 
   /* ── 2. Background Cyber Biotech Molecular Canvas ───────── */
   if (canvas && canvas.getContext) {
@@ -195,32 +205,261 @@
     setTimeout(typeLoop, 800);
   }
 
-  /* ── 4. 3D Perspective Card Tilt ────────────────────────── */
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const tiltCards = document.querySelectorAll('.project-card, .skill-card, .stat-box');
+  /* ── 4. 3D Card Tilt & Mouse-Tracking Glow Border ────────── */
+  const interactiveCards = document.querySelectorAll('.project-card, .skill-card, .stat-box');
 
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+  interactiveCards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
+      // Update CSS variables for radial border shine
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      // 3D perspective tilt
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-
         const rotateX = ((y - centerY) / centerY) * -5;
         const rotateY = ((x - centerX) / centerX) * 5;
-
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
+      }
+    });
 
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ── 5. Project Category Filter Tabs ────────────────────── */
+  if (filterTabs.length > 0) {
+    // Set initial hero card layout
+    const firstCard = document.querySelector('.project-card');
+    if (firstCard) firstCard.classList.add('hero-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('is-hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px)';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'none';
+            }, 50);
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+
+        // If 'all', make the first card span across 2 cols
+        const visibleCards = Array.from(projectCards).filter(c => !c.classList.contains('is-hidden'));
+        projectCards.forEach(c => c.classList.remove('hero-card'));
+        if (filter === 'all' && visibleCards.length > 0) {
+          visibleCards[0].classList.add('hero-card');
+        }
       });
     });
   }
 
-  /* ── 5. Power-User Command Palette (Ctrl + K) ────────────── */
+  /* ── 6. Project Quick-View Modals ────────────────────────── */
+  const projectData = {
+    g2g: {
+      tag: 'FULL-STACK WEB PLATFORM // NEXT.JS + SUPABASE',
+      title: 'G2G Biochemistry Community Hub',
+      banner: 'assets/projects/g2g.png',
+      desc: 'A full-stack academic and career platform engineered for biochemistry students at the University of Nairobi. It bridges the gap between scientific coursework, peer research sharing, and professional mentorship networks.',
+      problem: 'Biochemistry students lacked a centralized, dedicated digital commons to exchange lab protocols, coordinate peer study groups, and connect with postgraduate mentors.',
+      architecture: [
+        'Next.js 15+ App Router with React Server Components',
+        'Supabase BaaS: PostgreSQL database, Row Level Security (RLS)',
+        'Supabase Auth: JWT session management & secure role authorization',
+        'Tailwind CSS: Responsive cyberpunk-inspired design system',
+        'Vercel: Continuous integration and edge serverless deployment'
+      ],
+      features: [
+        'Dynamic peer resource repository with file upload & categorization',
+        'Real-time study group networking feeds and discussion threads',
+        'Departmental announcements & lab safety workshop registrations',
+        'Live 3D interactive DNA double-helix visualization widget'
+      ],
+      links: [
+        { label: 'Launch Live Platform ↗', url: 'https://g2g-community.vercel.app/', primary: true }
+      ]
+    },
+    dna: {
+      tag: 'BIOINFORMATICS & GENOMICS TOOL // PYTHON + STREAMLIT',
+      title: 'DNA Nucleotide Counter & Composition Visualizer',
+      banner: 'assets/projects/dna.jpg',
+      desc: 'An interactive bioinformatics web application designed for rapid genomic sequence analysis, calculating nucleotide distributions and compositional metrics from raw FASTA inputs.',
+      problem: 'Manually parsing large FASTA sequence files and calculating GC-content ratios during molecular genetics coursework is time-consuming and error-prone.',
+      architecture: [
+        'Python 3.11 core parsing algorithms',
+        'Streamlit interactive reactive web framework',
+        'BioPython for rigorous genomic sequence verification',
+        'Pandas DataFrame manipulation for statistical breakdowns',
+        'Altair declarative charting for real-time visualization'
+      ],
+      features: [
+        'Instant A, T, G, C base count extraction from multi-line FASTA strings',
+        'Automated GC-content percentage calculation for thermal stability analysis',
+        'Dynamic interactive bar charts & tabular frequency distribution tables',
+        'Lightweight, zero-install accessible cloud deployment'
+      ],
+      links: [
+        { label: 'Launch Tool ↗', url: 'https://dna-app-elias.streamlit.app', primary: true },
+        { label: 'Source Code ↗', url: 'https://github.com/isgathoni35/dna-app', primary: false }
+      ]
+    },
+    garlic: {
+      tag: 'MOLECULAR DOCKING CAPSTONE // COMPUTATIONAL BIO',
+      title: 'Garlic Secondary Metabolites vs. Aspergillus flavus',
+      banner: 'assets/projects/garlic.jpg',
+      desc: 'Undergraduate capstone research investigating the computational binding affinity and pharmacological inhibition potential of secondary organosulfur metabolites from Allium sativum against pathogenic Aspergillus flavus target proteins.',
+      problem: 'Aspergillus flavus produces carcinogenic aflatoxins that contaminate food supplies. Synthesizing synthetic fungicides causes resistance, necessitating the identification of natural bioactive inhibitors.',
+      architecture: [
+        'AutoDock Vina: Semi-flexible molecular docking simulation engine',
+        'PyRx: Automated virtual screening GUI & ligand energy minimization',
+        'BIOVIA Discovery Studio: 2D/3D non-covalent receptor-ligand interaction mapping',
+        'Python Scripting: Automated binding affinity data extraction & analysis'
+      ],
+      features: [
+        'Screening of Allicin, Ajoene, Diallyl Disulfide against fungal target enzymes',
+        'Target protein crystal structure preparation from Protein Data Bank (PDB)',
+        'Evaluation of binding energies (ΔG kcal/mol), RMSD values, and hydrogen bonding networks',
+        'Actionable computational proof for natural biocontrol formulations'
+      ],
+      links: []
+    },
+    portfolio: {
+      tag: 'WEB ENGINEERING // VANILLA CYBER BIOTECH SYSTEM',
+      title: 'Cyber Biotech Developer Portfolio',
+      banner: 'assets/projects/portfolio.jpg',
+      desc: 'A custom, performance-engineered personal portfolio articulating the convergence of Biochemistry and Software Engineering. Features zero heavy runtime dependencies and custom HTML5 particle physics.',
+      problem: 'Generic portfolio templates fail to convey the unique intersection of computational molecular science and modern software engineering.',
+      architecture: [
+        'HTML5 Semantic Architecture & Microdata markup',
+        'Vanilla CSS with custom tokens, glassmorphism, and responsive breakpoints',
+        'Interactive HTML5 Canvas particle network simulating synaptic molecular nodes',
+        'ES6+ JavaScript for 3D card tilt physics, Command Palette, and typewriter decrypt'
+      ],
+      features: [
+        'Command Palette (Ctrl + K) for rapid keyboard-driven navigation',
+        'Duotone holographic profile photo grading with continuous scanline sweeps',
+        'Dynamic Project Category Filter tabs for instantaneous browsing',
+        '100% responsive across mobile, tablet, and widescreen desktop displays'
+      ],
+      links: []
+    },
+    genai: {
+      tag: 'DEEP LEARNING ROADMAP // GEOMETRIC AI',
+      title: 'Generative AI for 3D Protein Folding & Design',
+      banner: 'assets/projects/genai.jpg',
+      desc: 'An exploratory technical roadmap investigating the application of transformer-based attention models and geometric deep learning to predict 3D protein tertiary structures directly from 1D primary sequences.',
+      problem: 'Experimental determination of protein structures via X-ray crystallography or Cryo-EM is expensive and laborious. Computational folding models enable rapid de novo design.',
+      architecture: [
+        'PyTorch: Deep learning tensor framework',
+        'Geometric Deep Learning & Invariant Point Attention (IPA)',
+        'Hugging Face Transformers for protein language modeling (ESM/ProtBERT)',
+        'Python Structural Bio pipelines (MDTraj, BioPython, OpenMM)'
+      ],
+      features: [
+        'Sequence-to-structure attention matrix interpretation',
+        'Prediction of inter-residue distance maps (distograms) and dihedral angles',
+        'De novo designed peptide scaffolds for enzyme binding pocket optimization',
+        'Integration with molecular dynamics simulation pipelines'
+      ],
+      links: []
+    }
+  };
+
+  function openProjectModal(projectId) {
+    const data = projectData[projectId];
+    if (!data || !modalBody || !modalBackdrop) return;
+
+    let linksHtml = '';
+    if (data.links && data.links.length > 0) {
+      linksHtml = `
+        <div class="modal-actions">
+          ${data.links.map(l => `
+            <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="project-link ${l.primary ? '' : 'link-ghost'}">
+              ${l.label}
+            </a>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    modalBody.innerHTML = `
+      <div class="modal-header-tag">// ${data.tag}</div>
+      <h3 class="modal-title">${data.title}</h3>
+      <div class="modal-banner-wrap">
+        <img src="${data.banner}" alt="${data.title} Preview" loading="lazy">
+      </div>
+      <p style="font-size: 1.02rem; color: var(--text-primary); margin-bottom: 24px; line-height: 1.6;">
+        ${data.desc}
+      </p>
+
+      <div class="modal-grid-2col">
+        <div class="modal-info-box">
+          <h4>Core Problem &amp; Scope</h4>
+          <p>${data.problem}</p>
+        </div>
+        <div class="modal-info-box">
+          <h4>Key Capabilities</h4>
+          <ul>
+            ${data.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal-info-box">
+        <h4>Technical Architecture &amp; Tooling</h4>
+        <ul>
+          ${data.architecture.map(a => `<li>${a}</li>`).join('')}
+        </ul>
+      </div>
+
+      ${linksHtml}
+    `;
+
+    modalBackdrop.classList.add('open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProjectModal() {
+    if (!modalBackdrop) return;
+    modalBackdrop.classList.remove('open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.link-details').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const proj = btn.getAttribute('data-project');
+      openProjectModal(proj);
+    });
+  });
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProjectModal);
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', e => {
+      if (e.target === modalBackdrop) closeProjectModal();
+    });
+  }
+
+  /* ── 7. Power-User Command Palette (Ctrl + K) ────────────── */
   function openCmdPalette() {
     if (!cmdBackdrop) return;
     cmdBackdrop.classList.add('open');
@@ -320,12 +559,16 @@
       } else {
         openCmdPalette();
       }
-    } else if (e.key === 'Escape' && cmdBackdrop && cmdBackdrop.classList.contains('open')) {
-      closeCmdPalette();
+    } else if (e.key === 'Escape') {
+      if (modalBackdrop && modalBackdrop.classList.contains('open')) {
+        closeProjectModal();
+      } else if (cmdBackdrop && cmdBackdrop.classList.contains('open')) {
+        closeCmdPalette();
+      }
     }
   });
 
-  /* ── 6. Navbar — Scrolled State ─────────────────────────── */
+  /* ── 8. Navbar — Scrolled State ─────────────────────────── */
   function updateNavbar() {
     const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
     if (heroBottom <= 0) {
@@ -335,7 +578,7 @@
     }
   }
 
-  /* ── 7. Scroll-Spy — Active Nav Link ────────────────────── */
+  /* ── 9. Scroll-Spy — Active Nav Link ────────────────────── */
   function updateScrollSpy() {
     const scrollY = window.scrollY;
     const navHeight = navbar ? navbar.offsetHeight : 72;
@@ -366,7 +609,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ── 8. Scroll-Reveal — IntersectionObserver ────────────── */
+  /* ── 10. Scroll-Reveal — IntersectionObserver ───────────── */
   const revealElements = document.querySelectorAll('.reveal');
   const staggerGroups  = document.querySelectorAll('.reveal-stagger');
 
@@ -402,7 +645,7 @@
     staggerObserver.observe(el);
   });
 
-  /* ── 9. Mobile Menu ─────────────────────────────────────── */
+  /* ── 11. Mobile Menu ────────────────────────────────────── */
   function openMenu() {
     hamburger.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
