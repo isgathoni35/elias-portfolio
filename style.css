@@ -440,6 +440,10 @@ img { display: block; max-width: 100%; }
   font-weight: 500;
   margin-bottom: 20px;
   font-family: var(--font-code);
+  min-height: 2.8em;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.4;
 }
 
 .hero-subtitle .accent-sep {
@@ -681,41 +685,76 @@ img { display: block; max-width: 100%; }
 }
 
 .about-text p {
-  margin-bottom: 20px;
-  font-size: 1.05rem;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-lead {
+  font-size: 1.08rem !important;
+  color: var(--text-primary) !important;
+  line-height: 1.75 !important;
 }
 
 .about-text strong { color: var(--text-primary); }
 
-.about-langs {
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-sub);
+.about-milestones {
+  margin: 24px 0;
+  background: rgba(13, 20, 30, 0.5);
+  border: 1px solid var(--border-sub);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px 24px;
 }
 
-.about-langs h4 {
+.about-milestones h4, .about-stack-bar h4 {
   font-family: var(--font-code);
   font-size: 0.82rem;
   color: var(--cyber-cyan);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
 }
 
-.about-langs ul li {
-  font-size: 0.95rem;
+.milestones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.milestones-list li {
+  font-size: 0.94rem;
   color: var(--text-muted);
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 8px;
+  line-height: 1.6;
 }
 
-.about-langs ul li::before {
-  content: ">";
-  color: var(--accent);
-  font-family: var(--font-code);
-  position: absolute;
-  left: 0;
+.milestones-list li strong {
+  color: var(--text-primary);
+}
+
+.about-stack-bar {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-sub);
+}
+
+.stack-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stack-pills-wrap .tech-pill {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  background: rgba(0, 255, 159, 0.05);
+  border-color: rgba(0, 255, 159, 0.18);
+  color: var(--text-primary);
+}
+
+.stack-pills-wrap .tech-pill:hover {
+  background: rgba(0, 255, 159, 0.15);
+  border-color: var(--accent);
 }
 
 /* Stats */

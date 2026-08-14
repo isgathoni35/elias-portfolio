@@ -161,10 +161,11 @@
   /* ── 3. Dynamic Terminal Typewriter Subtitle ─────────────── */
   if (typewriterEl) {
     const roles = [
-      'Synthetic Biology Enthusiast // Full-Stack Developer',
+      'AI Front-End Engineer // Flyrank AI',
+      'Agentic Software Engineer // Next.js & React',
       'Computational Biology Researcher // Molecular Docking',
-      'Full-Stack Web Engineer // Next.js & Python Tools',
-      'BSc. Biochemistry // University of Nairobi 2026'
+      'Quantitative Researcher // WorldQuant BRAIN Gold Tier',
+      'BSc. Biochemistry // University of Nairobi'
     ];
 
     let roleIdx = 0;
@@ -174,6 +175,12 @@
     const pauseDelay = 2200;
 
     function typeLoop() {
+      // If user has scrolled past hero, pause typing to eliminate background layout shifts & save CPU
+      if (window.scrollY > (hero ? hero.offsetHeight : 600)) {
+        setTimeout(typeLoop, 500);
+        return;
+      }
+
       const currentRole = roles[roleIdx];
 
       if (isDeleting) {
