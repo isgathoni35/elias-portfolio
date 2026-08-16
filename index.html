@@ -230,10 +230,10 @@
             <!-- Project Category Filter Tabs -->
             <div class="project-filters reveal" id="project-filters">
                 <button class="filter-tab active" data-filter="all">
-                    <span class="tab-bracket">[</span> ALL (5) <span class="tab-bracket">]</span>
+                    <span class="tab-bracket">[</span> ALL (6) <span class="tab-bracket">]</span>
                 </button>
                 <button class="filter-tab" data-filter="bio">
-                    <span class="tab-bracket">[</span> BIOINFORMATICS &amp; DOCKING (3) <span
+                    <span class="tab-bracket">[</span> BIOINFORMATICS &amp; DOCKING (4) <span
                         class="tab-bracket">]</span>
                 </button>
                 <button class="filter-tab" data-filter="web">
@@ -242,6 +242,41 @@
             </div>
 
             <div class="projects-grid" id="projects-grid">
+
+                <!-- Bio-Dock -->
+                <article class="project-card reveal hero-card" id="project-biodock" data-category="bio">
+                    <div class="project-thumb-wrap">
+                        <img src="assets/projects/biodock.png" alt="Bio-Dock In-Silico Molecular Docking & 3D WebGL Visualization Platform Preview"
+                            class="project-thumb" loading="lazy">
+                        <div class="thumb-overlay"></div>
+                        <span class="badge badge-live"><span class="badge-dot"></span> Live Application</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-meta">
+                            <span class="project-type">In-Silico Docking &bull; 3D WebGL Platform</span>
+                        </div>
+                        <h3>Bio-Dock</h3>
+                        <p>
+                            An asynchronous, full-stack in-silico ligand docking and 3D visualization web application. Brings molecular docking simulations to the web with an intuitive interface for running ligand-protein docking and visually analyzing structural interactions in a fully interactive 3D WebGL environment.
+                        </p>
+                        <ul class="tech-pills">
+                            <li class="tech-pill">FastAPI (Python)</li>
+                            <li class="tech-pill">AutoDock Vina</li>
+                            <li class="tech-pill">RDKit</li>
+                            <li class="tech-pill">WebGL (3D Viz)</li>
+                            <li class="tech-pill">Render &bull; Vercel</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://bio-dock.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="project-link" id="link-biodock-app">
+                                Launch Platform <span>&#8599;</span>
+                            </a>
+                            <button class="project-link link-details" data-project="biodock">
+                                Architecture &amp; Specs <span>&rarr;</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
                 <!-- G2G Hub -->
                 <article class="project-card reveal" id="project-g2g" data-category="web">
@@ -644,6 +679,11 @@
                 </div>
 
                 <div class="cmd-group-label">QUICK LAUNCH APPS</div>
+                <div class="cmd-item" data-action="link" data-url="https://bio-dock.vercel.app/">
+                    <span class="cmd-item-icon">&#x2197;</span>
+                    <span class="cmd-item-title">Launch Bio-Dock 3D Platform</span>
+                    <span class="cmd-item-desc">In-Silico Docking &amp; WebGL Viz</span>
+                </div>
                 <div class="cmd-item" data-action="link" data-url="https://g2g-community.vercel.app/">
                     <span class="cmd-item-icon">&#x2197;</span>
                     <span class="cmd-item-title">Launch G2G Community Hub</span>

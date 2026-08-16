@@ -280,6 +280,30 @@
 
   /* ── 6. Project Quick-View Modals ────────────────────────── */
   const projectData = {
+    biodock: {
+      tag: 'IN-SILICO DOCKING & 3D WEBGL // FASTAPI + AUTODOCK VINA',
+      title: 'Bio-Dock: Asynchronous In-Silico Molecular Docking Platform',
+      banner: 'assets/projects/biodock.png',
+      desc: 'An asynchronous, full-stack in-silico ligand docking and 3D visualization web application. Bio-Dock brings molecular docking simulations to the web, providing an intuitive interface for running ligand-protein docking and visually analyzing structural interactions in a fully interactive 3D WebGL environment.',
+      problem: 'Traditional molecular docking tools require complex local CLI software installations, manual file format conversions, and lack intuitive web-based real-time 3D binding site exploration for researchers.',
+      architecture: [
+        'Backend & API: FastAPI (Python) for asynchronous computation workflows',
+        'Scientific Compute Engine: AutoDock Vina for molecular docking simulations',
+        'Chemoinformatics Processing: RDKit for parsing, handling, and manipulating chemical data & ligands',
+        'Frontend 3D Visuals: WebGL for rendering interactive 3D molecular structures and binding sites',
+        'Cloud Infrastructure: Asynchronous backend deployed on Render, frontend deployed on Vercel'
+      ],
+      features: [
+        'Asynchronous job queue managing long-running computational workloads without blocking the UI',
+        'Automated target macromolecule PDB fetching from RCSB Protein Data Bank',
+        'SMILES ligand input with 3D conformer generation and Gasteiger charge assignment',
+        'Interactive 3D active site search grid box configuration (X, Y, Z coordinates & dimensions)',
+        'Full WebGL 3D molecular viewport for structural inspection of protein-ligand binding poses'
+      ],
+      links: [
+        { label: 'Launch Live Platform ↗', url: 'https://bio-dock.vercel.app/', primary: true }
+      ]
+    },
     g2g: {
       tag: 'FULL-STACK WEB PLATFORM // NEXT.JS + SUPABASE',
       title: 'G2G Biochemistry Community Hub',

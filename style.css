@@ -1448,7 +1448,7 @@ img { display: block; max-width: 100%; }
 
 /* ── 14. Responsive Layouts (Mobile & Tablet) ──────────────── */
 @media (max-width: 900px) {
-  .projects-grid .project-card:first-child {
+  .projects-grid .project-card.hero-card {
     grid-template-columns: 1fr;
   }
 }
