@@ -1656,4 +1656,140 @@ img { display: block; max-width: 100%; }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: #162232; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ── 18. Floating WhatsApp Comms Beacon ─────────────────────── */
+.wa-float-beacon {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 50px;
+  min-width: 50px;
+  padding: 0 13px;
+  background: rgba(15, 23, 32, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 9999px;
+  color: var(--text-primary);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(16, 185, 129, 0.18);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.wa-ping-dot {
+  position: absolute;
+  top: 9px;
+  left: 29px;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  border: 2px solid #080c10;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 8px var(--accent);
+  animation: waRadarPulse 2.4s infinite;
+}
+
+@keyframes waRadarPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.wa-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: #10b981;
+  transition: transform 0.3s var(--ease), fill 0.3s var(--ease);
+}
+
+.wa-label {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  transform: translateX(-6px);
+  transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+}
+
+.wa-label-arrow {
+  color: var(--accent);
+  margin-left: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .wa-float-beacon:hover {
+    background: rgba(15, 23, 32, 0.96);
+    border-color: var(--accent);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85), 0 0 24px var(--accent-glow);
+    transform: translateY(-3px);
+    padding: 0 18px 0 14px;
+    gap: 10px;
+  }
+
+  .wa-float-beacon:hover .wa-icon {
+    fill: #34d399;
+    transform: scale(1.08);
+  }
+
+  .wa-float-beacon:hover .wa-label {
+    opacity: 1;
+    max-width: 200px;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .wa-float-beacon {
+    bottom: 20px;
+    right: 20px;
+    height: 46px;
+    min-width: 46px;
+    padding: 0 11px;
+    gap: 0;
+  }
+
+  .wa-ping-dot {
+    top: 7px;
+    left: 27px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .wa-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .wa-label {
+    display: none !important;
+  }
+
+  .wa-float-beacon:active {
+    transform: scale(0.94);
+    background: rgba(15, 23, 32, 0.98);
+  }
+}

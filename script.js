@@ -162,7 +162,7 @@
   if (typewriterEl) {
     const roles = [
       'AI Front-End Engineer // Flyrank AI',
-      'Agentic Software Engineer // Next.js & React',
+      'Full-Stack AI Engineer',
       'Computational Biology Researcher // Molecular Docking',
       'Quantitative Researcher // WorldQuant BRAIN Gold Tier',
       'BSc. Biochemistry // University of Nairobi'
@@ -304,6 +304,33 @@
         { label: 'Launch Live Platform ↗', url: 'https://bio-dock.vercel.app/', primary: true }
       ]
     },
+    postmatic: {
+      tag: 'AUTONOMOUS AI VIDEO SAAS // NEXT.JS 16 + FASTAPI + GEMINI',
+      title: 'PostMatic: Autonomous Faceless Video SaaS & Publisher',
+      banner: 'assets/projects/postmatic.png',
+      desc: 'A full-stack, zero-OpEx autonomous faceless video generator and social publisher tailored for YouTube Shorts, TikTok, and Instagram Reels. It end-to-end automates scriptwriting, neural voiceover synthesis, synchronized karaoke subtitles, smart b-roll matching, and FFmpeg assembly into high-retention 9:16 vertical videos.',
+      problem: 'Content creators spend hours manually drafting scripts, recording voiceovers, hunting for stock footage, syncing captions word-by-word, and rendering vertical videos for social platforms.',
+      architecture: [
+        'Frontend UI: Next.js 16 (Turbopack), React 19, Tailwind CSS with live 9:16 smartphone player & multi-view workspaces',
+        'Backend API: FastAPI + Uvicorn (Python 3.12) asynchronous orchestration daemon & REST endpoints',
+        'LLM Scriptwriter: Google Gemini (google-genai SDK) with strict Pydantic multi-scene JSON schemas',
+        'Neural Voiceover: Microsoft edge-tts with sub-second word-boundary offsets for dynamic karaoke .ass captions',
+        'Media Pipeline: Pexels Video API v1 for 4K/HD clips + hardware-accelerated FFmpeg (libass / imageio-ffmpeg)',
+        'Database & Auth: Supabase (PostgreSQL + Row-Level Security + GoTrue Auth)',
+        'Cloud Worker & Publishing: Ephemeral GitHub Actions runners for rendering + YouTube Data API v3 OAuth 2.0 chunked uploads'
+      ],
+      features: [
+        'AI Multi-Scene Scriptwriter with structured scene hooks, retention pacing, and dynamic visual prompts',
+        'High-fidelity neural voiceover with sub-second word-boundary timing alignment',
+        'Dynamic Karaoke Subtitles with custom typography themes (The Bold Highlight, Sunset Glow, Neon Cyber)',
+        'Smart 9:16 vertical 4K b-roll sourcing, auto-trimming, background audio ducking, and H.264 rendering',
+        'Linear-grade Studio Console with live 9:16 smartphone player simulator and multi-view workspaces',
+        'Automated OAuth 2.0 YouTube Shorts chunked video publishing with background token refresh workers'
+      ],
+      links: [
+        { label: 'Launch Live Studio ↗', url: 'https://post-matic.vercel.app/', primary: true }
+      ]
+    },
     g2g: {
       tag: 'FULL-STACK WEB PLATFORM // NEXT.JS + SUPABASE',
       title: 'G2G Biochemistry Community Hub',
@@ -330,7 +357,7 @@
     dna: {
       tag: 'BIOINFORMATICS & GENOMICS TOOL // PYTHON + STREAMLIT',
       title: 'DNA Nucleotide Counter & Composition Visualizer',
-      banner: 'assets/projects/dna.jpg',
+      banner: 'assets/projects/dna.png',
       desc: 'An interactive bioinformatics web application designed for rapid genomic sequence analysis, calculating nucleotide distributions and compositional metrics from raw FASTA inputs.',
       problem: 'Manually parsing large FASTA sequence files and calculating GC-content ratios during molecular genetics coursework is time-consuming and error-prone.',
       architecture: [
@@ -354,7 +381,7 @@
     garlic: {
       tag: 'MOLECULAR DOCKING CAPSTONE // COMPUTATIONAL BIO',
       title: 'Garlic Secondary Metabolites vs. Aspergillus flavus',
-      banner: 'assets/projects/garlic.jpg',
+      banner: 'assets/projects/garlic.png',
       desc: 'Undergraduate capstone research investigating the computational binding affinity and pharmacological inhibition potential of secondary organosulfur metabolites from Allium sativum against pathogenic Aspergillus flavus target proteins.',
       problem: 'Aspergillus flavus produces carcinogenic aflatoxins that contaminate food supplies. Synthesizing synthetic fungicides causes resistance, necessitating the identification of natural bioactive inhibitors.',
       architecture: [

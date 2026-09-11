@@ -71,6 +71,12 @@
 | 4.2  | Functional testing (links, scroll, menu, email)   | ✅ Done        | Clean vanilla implementation                  |
 | 4.3  | Responsive testing (375px, 768px, 1280px, 1440px) | ✅ Done        | Responsive grids & mobile command button      |
 | 4.4  | Final review walkthrough with Elias               | ✅ Done        | Walkthrough artifact updated                  |
+| 4.5  | DNA project screenshot asset upgrade              | ✅ Done        | Replaced dna.jpg with live Genomic Analyzer screenshot (dna.png) |
+| 4.6  | G2G Biochemistry app screenshot update            | ✅ Done        | Replaced g2g.png with latest landing UI screenshot |
+| 4.7  | Garlic Research docking diagram update            | ✅ Done        | Replaced garlic.jpg with high-res molecular docking & binding interaction figure (garlic.png) |
+| 4.8  | Hero typewriter role update                       | ✅ Done        | Updated animated subtitle role to "Full-Stack AI Engineer" |
+| 4.9  | Added PostMatic full-stack project                | ✅ Done        | Integrated PostMatic SaaS into showcase cards, filter tabs, Quick-View modal & command palette |
+| 4.10 | Floating WhatsApp Comms Beacon                    | ✅ Done        | Implemented OLED glassmorphic floating WhatsApp button with live radar ping & hover expansion |
 
 ---
 
