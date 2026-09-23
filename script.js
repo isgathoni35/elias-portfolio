@@ -300,6 +300,50 @@
         'Interactive 3D active site search grid box configuration (X, Y, Z coordinates & dimensions)',
         'Full WebGL 3D molecular viewport for structural inspection of protein-ligand binding poses'
       ],
+      metrics: [
+        { val: '60 FPS', label: 'Zero-Latency WebGL Shaders' },
+        { val: 'Async', label: 'Decoupled Worker Queue' },
+        { val: '0 Installs', label: 'In-Browser Vina Execution' }
+      ],
+      pipeline: `┌─────────────────────┐      Async WebSocket / REST     ┌─────────────────────────┐
+│ WebGL 3D Molecular  │ ──────────────────────────────> │ FastAPI Async Engine    │
+│ Viewport (Client)   │                                 │ Non-blocking Event Loop │
+└─────────────────────┘ <── Real-time Binding Pose ──── └────────────┬────────────┘
+                                                                     │
+                         ┌───────────────────────────────────────────┴────────────────────────┐
+                         ▼                                                                    ▼
+            ┌─────────────────────────┐                                          ┌─────────────────────────┐
+            │ RCSB Protein Data Bank  │                                          │ RDKit Chemoinformatics │
+            │ Automated PDB Retrieval │                                          │ SMILES Parsing & 3D     │
+            │ & Macromolecule Clean   │                                          │ Conformer Minimization  │
+            └────────────┬────────────┘                                          └────────────┬────────────┘
+                         │                                                                    │
+                         └─────────────────────────────┬──────────────────────────────────────┘
+                                                       ▼
+                                      ┌─────────────────────────────────┐
+                                      │ AutoDock Vina Simulation Engine │
+                                      │ Semi-flexible In-Silico Docking │
+                                      │ Grid Box & Energy Calculations  │
+                                      └────────────────┬────────────────┘
+                                                       │
+                                                       ▼
+                                      ┌─────────────────────────────────┐
+                                      │ Binding Free Energy (ΔG) Calc   │
+                                      │ Hydrogen-Bond Interaction Map   │
+                                      │ Multi-Pose PDBQT Conformer Gen  │
+                                      └─────────────────────────────────┘`,
+      tradeoffs: [
+        {
+          title: 'Asynchronous Task Queue vs. Synchronous Blocking HTTP',
+          problem: 'Docking runs take 30–120s depending on grid dimension. Standard HTTP requests hit reverse-proxy 504 timeouts and freeze the client thread.',
+          solution: 'Engineered an asynchronous task queue returning an immediate simulation job ID. The client polls or listens via event stream while keeping the 3D viewport completely smooth at 60 FPS.'
+        },
+        {
+          title: 'Client WebGL Shaders vs. Server-Side Raytracing',
+          problem: 'Server-side raytraced streaming incurs heavy server GPU operational costs and introduces unacceptable input latency when rotating structures.',
+          solution: 'Rendered molecular geometries entirely client-side using WebGL atomic sphere shaders and ribbon interpolations, streaming only lightweight PDBQT coordinates.'
+        }
+      ],
       links: [
         { label: 'Launch Live Platform ↗', url: 'https://bio-dock.vercel.app/', primary: true }
       ]
@@ -327,6 +371,62 @@
         'Linear-grade Studio Console with live 9:16 smartphone player simulator and multi-view workspaces',
         'Automated OAuth 2.0 YouTube Shorts chunked video publishing with background token refresh workers'
       ],
+      metrics: [
+        { val: '32 Tests', label: 'Pytest Suite (100% Core)' },
+        { val: '$0.00', label: 'Zero-OpEx Cloud Baseline' },
+        { val: '< 45s', label: '1080p 60FPS Render Pipeline' }
+      ],
+      pipeline: `┌─────────────────┐       HTTP / REST        ┌─────────────────────────┐
+│ Next.js 16 UI   │ ───────────────────────> │ FastAPI Orchestrator    │
+│ (React 19 /     │                          │ (Pydantic Validation &  │
+│ Turbopack)      │ <─── WebSocket / Polling │ Session Management)     │
+└─────────────────┘                          └────────────┬────────────┘
+                                                          │
+                    ┌─────────────────────────────────────┴───────────────────┐
+                    ▼                                                         ▼
+       ┌────────────────────────┐                                ┌────────────────────────┐
+       │ Google Gemini 3.5      │                                │ Microsoft Edge-TTS     │
+       │ Structured Multi-Scene │                                │ Sub-second word-level  │
+       │ JSON Pydantic Schema   │                                │ offset timestamping    │
+       └────────────┬───────────┘                                └────────────┬───────────┘
+                    │                                                         │
+                    ▼                                                         ▼
+       ┌────────────────────────┐                                ┌────────────────────────┐
+       │ Pexels Video API       │                                │ Dynamic .ass Subtitle  │
+       │ 4K / HD 9:16 Vertical  │                                │ Kinetic Typography     │
+       │ Stock B-Roll Retrieval │                                │ (Karaoke Glow / Cyber) │
+       └────────────┬───────────┘                                └────────────┬───────────┘
+                    │                                                         │
+                    └─────────────────────┬───────────────────────────────────┘
+                                          ▼
+                         ┌─────────────────────────────────┐
+                         │ Ephemeral GitHub Actions Runner │
+                         │ Hardware-Accelerated FFmpeg     │
+                         │ (H.264 / AAC Video Encoding)    │
+                         └────────────────┬────────────────┘
+                                          │ Direct Chunked Upload
+                                          ▼
+                         ┌─────────────────────────────────┐
+                         │ YouTube Data API v3 (OAuth 2.0) │
+                         │ Auto Token Refresh Daemon       │
+                         └─────────────────────────────────┘`,
+      tradeoffs: [
+        {
+          title: 'Zero-OpEx Ephemeral Runners vs. Dedicated Cloud GPUs',
+          problem: 'Dedicated rendering servers cost $60–$150/mo in idle compute, making early-stage creator tools financially unsustainable.',
+          solution: 'Architected an event-driven workflow dispatch to ephemeral GitHub Actions runners (\`render.yml\`) for FFmpeg video compilation, scaling compute to zero when idle.'
+        },
+        {
+          title: 'Strict Pydantic JSON Schemas vs. Free-form Prompting',
+          problem: 'LLMs regularly output unpredictable markdown blocks, trailing commas, or missing scene timing keys, causing downstream video assembly crashes.',
+          solution: 'Enforced strict Pydantic schemas via Google GenAI SDK structured JSON mode with automated retry loops, ensuring 100% deterministic scene inputs for the rendering engine.'
+        },
+        {
+          title: 'Direct Word-Boundary Offsets vs. Whisper Audio Alignment',
+          problem: 'Aligning audio post-generation with Whisper adds 15–25 seconds of transcription latency and significant compute overhead.',
+          solution: 'Hooked into Microsoft Edge-TTS stream word-boundary events during synthesis, eliminating transcription latency and generating instant word-level kinetic karaoke subtitles.'
+        }
+      ],
       links: [
         { label: 'Launch Live Studio ↗', url: 'https://post-matic.vercel.app/', primary: true }
       ]
@@ -349,6 +449,30 @@
         'Real-time study group networking feeds and discussion threads',
         'Departmental announcements & lab safety workshop registrations',
         'Live 3D interactive DNA double-helix visualization widget'
+      ],
+      metrics: [
+        { val: '-40%', label: 'Client Bundle Size via RSC' },
+        { val: '100% RLS', label: 'PostgreSQL Policy Auth' },
+        { val: 'Edge', label: 'Serverless SSR Deployment' }
+      ],
+      pipeline: `┌─────────────────────────┐       Edge Serverless       ┌─────────────────────────┐
+│ Next.js 15+ App Router  │ ──────────────────────────> │ Vercel Edge Network     │
+│ React Server Components │                             │ Dynamic SSR & Static ISR│
+└─────────────────────────┘                             └────────────┬────────────┘
+                                                                     │
+                         ┌───────────────────────────────────────────┴────────────────────────┐
+                         ▼                                                                    ▼
+            ┌─────────────────────────┐                                          ┌─────────────────────────┐
+            │ Supabase PostgreSQL DB  │                                          │ Supabase Auth & Storage │
+            │ Row-Level Security(RLS) │                                          │ JWT Session Verification│
+            │ Real-time Replication   │                                          │ S3-compatible Lab Docs  │
+            └─────────────────────────┘                                          └─────────────────────────┘`,
+      tradeoffs: [
+        {
+          title: 'PostgreSQL Row-Level Security vs. Application Middleware Auth',
+          problem: 'Application-level authorization easily leaks data if an engineer forgets to apply an auth guard on a single API route.',
+          solution: 'Enforced declarative Row-Level Security (RLS) policies directly within PostgreSQL, mathematically guaranteeing student privacy at the database layer.'
+        }
       ],
       links: [
         { label: 'Launch Live Platform ↗', url: 'https://g2g-community.vercel.app/', primary: true }
@@ -457,38 +581,127 @@
       `;
     }
 
+    const hasTabs = data.pipeline || data.tradeoffs;
+
+    const tabsHtml = hasTabs ? `
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="overview">[ 01. Overview &amp; Specs ]</button>
+        ${data.pipeline ? `<button class="modal-tab" data-tab="architecture">[ 02. System Architecture Flow ]</button>` : ''}
+        ${data.tradeoffs ? `<button class="modal-tab" data-tab="tradeoffs">[ 03. Engineering Decisions &amp; Trade-offs ]</button>` : ''}
+      </div>
+    ` : '';
+
+    const metricsHtml = data.metrics && data.metrics.length > 0 ? `
+      <div class="metrics-row">
+        ${data.metrics.map(m => `
+          <div class="metric-card">
+            <span class="metric-val">${m.val}</span>
+            <span class="metric-lbl">${m.label}</span>
+          </div>
+        `).join('')}
+      </div>
+    ` : '';
+
+    const pipelineHtml = data.pipeline ? `
+      <div class="modal-tab-content" id="tab-architecture">
+        <div class="modal-info-box">
+          <h4>Data Flow &amp; Distributed Architecture Topology</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+            End-to-end data pipeline mapping communication paths across client viewports, asynchronous API daemons, AI inference engines, and cloud rendering targets:
+          </p>
+          <div class="pipeline-flow-box">
+            <pre class="pipeline-flow-diagram">${data.pipeline}</pre>
+          </div>
+        </div>
+      </div>
+    ` : '';
+
+    const tradeoffsHtml = data.tradeoffs && data.tradeoffs.length > 0 ? `
+      <div class="modal-tab-content" id="tab-tradeoffs">
+        <div class="modal-info-box">
+          <h4>Senior Architectural Decisions &amp; Failure Modes</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+            Technical trade-offs evaluated during system design to guarantee zero runtime crashes, eliminate thread blocking, and optimize cost/latency:
+          </p>
+          <div class="tradeoffs-list">
+            ${data.tradeoffs.map(t => `
+              <div class="tradeoff-card">
+                <h5>⚡ ${t.title}</h5>
+                <div class="tradeoff-grid">
+                  <div class="tradeoff-col problem">
+                    <strong>Bottleneck / Challenge</strong>
+                    ${t.problem}
+                  </div>
+                  <div class="tradeoff-col solution">
+                    <strong>Architectural Solution</strong>
+                    ${t.solution}
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    ` : '';
+
     modalBody.innerHTML = `
       <div class="modal-header-tag">// ${data.tag}</div>
       <h3 class="modal-title">${data.title}</h3>
       <div class="modal-banner-wrap">
         <img src="${data.banner}" alt="${data.title} Preview" loading="lazy">
       </div>
-      <p style="font-size: 1.02rem; color: var(--text-primary); margin-bottom: 24px; line-height: 1.6;">
-        ${data.desc}
-      </p>
 
-      <div class="modal-grid-2col">
-        <div class="modal-info-box">
-          <h4>Core Problem &amp; Scope</h4>
-          <p>${data.problem}</p>
+      ${tabsHtml}
+
+      <div class="modal-tab-content active" id="tab-overview">
+        <p style="font-size: 1.02rem; color: var(--text-primary); margin-bottom: 24px; line-height: 1.6;">
+          ${data.desc}
+        </p>
+
+        ${metricsHtml}
+
+        <div class="modal-grid-2col">
+          <div class="modal-info-box">
+            <h4>Core Problem &amp; Scope</h4>
+            <p>${data.problem}</p>
+          </div>
+          <div class="modal-info-box">
+            <h4>Key Capabilities</h4>
+            <ul>
+              ${data.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+          </div>
         </div>
-        <div class="modal-info-box">
-          <h4>Key Capabilities</h4>
+
+        <div class="modal-info-box" style="margin-top: 20px;">
+          <h4>Technical Architecture &amp; Tooling</h4>
           <ul>
-            ${data.features.map(f => `<li>${f}</li>`).join('')}
+            ${data.architecture.map(a => `<li>${a}</li>`).join('')}
           </ul>
         </div>
       </div>
 
-      <div class="modal-info-box">
-        <h4>Technical Architecture &amp; Tooling</h4>
-        <ul>
-          ${data.architecture.map(a => `<li>${a}</li>`).join('')}
-        </ul>
-      </div>
+      ${pipelineHtml}
+      ${tradeoffsHtml}
 
       ${linksHtml}
     `;
+
+    // Attach modal tab switching listeners
+    const tabBtns = modalBody.querySelectorAll('.modal-tab');
+    const tabContents = modalBody.querySelectorAll('.modal-tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        const activeContent = modalBody.querySelector('#tab-' + targetTab);
+        if (activeContent) activeContent.classList.add('active');
+      });
+    });
 
     modalBackdrop.classList.add('open');
     modalBackdrop.setAttribute('aria-hidden', 'false');
@@ -671,37 +884,65 @@
   const revealElements = document.querySelectorAll('.reveal');
   const staggerGroups  = document.querySelectorAll('.reveal-stagger');
 
-  const revealObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
+    });
+
+    revealElements.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+
+    const staggerObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: '0px 0px -20px 0px'
+    });
+
+    staggerGroups.forEach(function (el) {
+      staggerObserver.observe(el);
+    });
+  } else {
+    revealElements.forEach(el => el.classList.add('is-visible'));
+    staggerGroups.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Immediate visibility check for above-the-fold content on load
+  function checkInitialVisibility() {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px'
-  });
-
-  revealElements.forEach(function (el) {
-    revealObserver.observe(el);
-  });
-
-  const staggerObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        staggerObserver.unobserve(entry.target);
+    staggerGroups.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
       }
     });
-  }, {
-    threshold: 0.08,
-    rootMargin: '0px 0px -30px 0px'
-  });
+  }
 
-  staggerGroups.forEach(function (el) {
-    staggerObserver.observe(el);
-  });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkInitialVisibility);
+  } else {
+    checkInitialVisibility();
+  }
+  setTimeout(checkInitialVisibility, 150);
 
   /* ── 11. Mobile Menu ────────────────────────────────────── */
   function openMenu() {

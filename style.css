@@ -183,6 +183,13 @@ img { display: block; max-width: 100%; }
   transform: translateY(0);
 }
 
+/* Ensure Hero section elements render immediately above the fold */
+.hero .hero-text,
+.hero .hero-photo-wrap {
+  opacity: 1;
+  transform: none;
+}
+
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(24px);
@@ -194,6 +201,16 @@ img { display: block; max-width: 100%; }
 .reveal-stagger.is-visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.28s; }
 .reveal-stagger.is-visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.38s; }
 .reveal-stagger.is-visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.48s; }
+
+/* Reduced motion & graceful degradation fallback */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 
 /* ── 6. Section Headers (Cyber HUD Style) ───────────────────── */
 .section-heading {
@@ -732,6 +749,70 @@ img { display: block; max-width: 100%; }
   color: var(--text-primary);
 }
 
+/* Core Engineering Tenets */
+.engineering-tenets {
+  margin: 28px 0;
+  background: rgba(10, 16, 24, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  backdrop-filter: blur(14px);
+}
+
+.engineering-tenets h4 {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.tenets-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.tenet-card {
+  display: flex;
+  gap: 12px;
+  background: rgba(15, 23, 32, 0.65);
+  border: 1px solid var(--border-sub);
+  border-radius: 8px;
+  padding: 14px 16px;
+  transition: all 0.25s var(--ease);
+}
+
+.tenet-card:hover {
+  border-color: var(--border-glow);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.tenet-num {
+  font-family: var(--font-code);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.tenet-content h5 {
+  font-family: var(--font-code);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.tenet-content p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
 .about-stack-bar {
   margin-top: 24px;
   padding-top: 20px;
@@ -1215,11 +1296,189 @@ img { display: block; max-width: 100%; }
   padding-top: 24px;
 }
 
+/* Modal Navigation Tabs */
+.modal-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-sub);
+  margin: 24px 0 20px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+
+.modal-tab {
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-sub);
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  white-space: nowrap;
+}
+
+.modal-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--border-glow);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.modal-tab.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(0, 255, 159, 0.12);
+  box-shadow: 0 0 14px var(--accent-glow-sub);
+}
+
+/* Modal Tab Content Panels */
+.modal-tab-content {
+  display: none;
+  animation: fadeInTab 0.3s ease;
+}
+
+.modal-tab-content.active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pipeline Flow Visual Container */
+.pipeline-flow-box {
+  background: #04070a;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.pipeline-flow-diagram {
+  font-family: var(--font-code);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--accent);
+  margin: 0;
+  white-space: pre;
+}
+
+/* Engineering Trade-off Cards */
+.tradeoffs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tradeoff-card {
+  background: rgba(13, 20, 28, 0.75);
+  border: 1px solid var(--border-sub);
+  border-left: 3px solid var(--cyber-cyan);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.tradeoff-card h5 {
+  font-family: var(--font-code);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tradeoff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.tradeoff-col {
+  font-size: 0.83rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.tradeoff-col strong {
+  display: block;
+  font-family: var(--font-code);
+  font-size: 0.74rem;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tradeoff-col.problem strong {
+  color: #f87171;
+}
+
+.tradeoff-col.solution strong {
+  color: var(--accent);
+}
+
+/* Metrics Grid */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: rgba(10, 16, 24, 0.85);
+  border: 1px solid var(--border-sub);
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.metric-card .metric-val {
+  font-family: var(--font-code);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.metric-card .metric-lbl {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: block;
+}
+
+@media (max-width: 680px) {
+  .tradeoff-grid {
+    grid-template-columns: 1fr;
+  }
+  .metrics-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── 11. Capabilities Matrix (Skills) ──────────────────────── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .skill-card {
@@ -1416,27 +1675,74 @@ img { display: block; max-width: 100%; }
   color: var(--text-muted);
 }
 
-.btn-large {
-  padding: 16px 40px;
-  font-size: 1rem;
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
   margin-bottom: 40px;
+}
+
+.btn-large {
+  padding: 16px 36px;
+  font-size: 1rem;
+}
+
+.btn-icon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.btn-whatsapp-direct:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow-sub);
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-.social-links a {
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-sub);
+  border-radius: 6px;
   font-family: var(--font-code);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   color: var(--text-muted);
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
 }
 
-.social-links a .social-bracket { color: var(--accent); }
-.social-links a:hover { color: var(--accent-light); }
+.social-pill .social-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  fill: currentColor;
+  transition: transform 0.25s var(--ease), fill 0.25s var(--ease);
+}
+
+.social-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--surface-hover);
+  box-shadow: 0 0 16px var(--accent-glow-sub);
+  transform: translateY(-2px);
+}
+
+.social-pill:hover .social-icon {
+  transform: scale(1.12);
+  fill: var(--accent);
+}
 
 .footer-copy {
   font-family: var(--font-code);
@@ -1490,6 +1796,26 @@ img { display: block; max-width: 100%; }
 
   .contact-card { padding: 48px 20px 32px; }
   .terminal-header { position: static; margin-bottom: 20px; justify-content: center; }
+
+  .contact-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .contact-actions .btn-large {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-pill {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
 }
 
 /* ── 15. 3D Tilt Card Cursor Sheen ─────────────────────────── */
