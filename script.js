@@ -32,6 +32,11 @@
   const modalCloseBtn     = document.getElementById('modal-close-btn');
   const modalBody         = document.getElementById('modal-body');
 
+  // Certificate Lightbox Modal
+  const certBackdrop      = document.getElementById('cert-modal-backdrop');
+  const certCloseBtn      = document.getElementById('cert-modal-close-btn');
+  const certBody          = document.getElementById('cert-modal-body');
+
   /* ── 2. Background Cyber Biotech Molecular Canvas ───────── */
   if (canvas && canvas.getContext) {
     const ctx = canvas.getContext('2d');
@@ -164,7 +169,7 @@
       'AI Front-End Engineer // Flyrank AI',
       'Full-Stack AI Engineer',
       'Computational Biology Researcher // Molecular Docking',
-      'Quantitative Researcher // WorldQuant BRAIN Gold Tier',
+      'Quantitative Researcher // WorldQuant IQC Top 20%',
       'BSc. Biochemistry // University of Nairobi'
     ];
 
@@ -213,7 +218,7 @@
   }
 
   /* ── 4. 3D Card Tilt & Mouse-Tracking Glow Border ────────── */
-  const interactiveCards = document.querySelectorAll('.project-card, .skill-card, .stat-box');
+  const interactiveCards = document.querySelectorAll('.project-card, .skill-card, .stat-box, .cert-item');
 
   interactiveCards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -730,6 +735,232 @@
     });
   }
 
+  /* ── 6.5 Certificate Lightbox Modals ────────────────────── */
+  const certData = {
+    simplilearn: {
+      tag: 'PROFESSIONAL CERTIFICATION // ARTIFICIAL INTELLIGENCE',
+      title: 'Introduction to Artificial Intelligence',
+      issuer: 'Simplilearn SkillUp',
+      date: '17th January 2026',
+      image: 'assets/certificates/simplilearn_ai.png',
+      pdf: 'assets/certificates/simplilearn_ai.pdf',
+      seal: '🤖',
+      desc: 'Professional certificate of completion awarded for demonstrating foundational competency and applied knowledge in Artificial Intelligence principles, algorithms, and core architectures.',
+      highlights: [
+        'Certificate Code: 9725975',
+        'Demonstrated commitment and competency in Artificial Intelligence principles & techniques',
+        'Signed and accredited by Krishna Kumar, CEO of Simplilearn'
+      ],
+      skills: ['Artificial Intelligence', 'Machine Learning', 'Neural Systems', 'AI Fundamentals'],
+      verifyUrl: 'assets/certificates/simplilearn_ai.pdf'
+    },
+    qualcomm: {
+      tag: 'TECHNICAL ACCREDITATION // QUALCOMM ACADEMY',
+      title: 'AI Upskilling Certificate: Technical Foundation',
+      issuer: 'Qualcomm Academy',
+      date: 'December 23, 2025',
+      image: 'assets/certificates/qualcomm_ai.png',
+      pdf: 'assets/certificates/qualcomm_ai.pdf',
+      seal: '⚡',
+      desc: 'Certificate of completion awarded in recognition of successfully completing the technical foundation curriculum for AI Upskilling through Qualcomm Academy.',
+      highlights: [
+        'Qualcomm ID: ULHP1dIvnD',
+        'Issued by Qualcomm Academy (Qualcomm Technologies, Inc.)',
+        'Signed by Vikram Y Malhotra, Senior Director, Program Management'
+      ],
+      skills: ['Artificial Intelligence', 'Technical Foundations', 'Machine Learning', 'Edge AI'],
+      verifyUrl: 'assets/certificates/qualcomm_ai.pdf'
+    },
+    martial: {
+      tag: 'SOFTWARE ENGINEERING // PYTHON & OBJECT-ORIENTED PROGRAMMING',
+      title: 'Python Programming Essentials & OOP',
+      issuer: 'Martial School of IT (Powered by Jenga eLearning)',
+      date: '24th October 2025',
+      image: 'assets/certificates/martial_python_oop.png',
+      pdf: 'assets/certificates/martial_python_oop.pdf',
+      seal: '🐍',
+      desc: 'Certificate of completion awarded for successfully completing the rigorous Python Programming Essentials course (January 2025 Cohort) covering comprehensive software engineering principles and hands-on application development.',
+      highlights: [
+        'Certificate Serial ID: 6030-6065-4275-3572',
+        'Curriculum: Variables, Data Structures, Conditional Logic, Loops, Functions & Modules',
+        'Advanced focus on Object-Oriented Programming (OOP) paradigms and modular architecture',
+        'Instructor: Erick Otieno | Signed by Education Director & Managing Director'
+      ],
+      skills: ['Python', 'Object-Oriented Programming (OOP)', 'Modular Architecture', 'Software Engineering', 'Data Structures'],
+      verifyUrl: 'assets/certificates/martial_python_oop.pdf'
+    },
+    saylor: {
+      tag: 'COMPUTER SCIENCE // FOUNDATIONAL PROGRAMMING',
+      title: 'CS101: Introduction to Programming I',
+      issuer: 'Saylor Academy',
+      date: 'January 16, 2026',
+      image: 'assets/certificates/saylor_cs101.png',
+      pdf: 'assets/certificates/saylor_cs101.pdf',
+      seal: '💻',
+      desc: 'Certificate of Achievement awarded for mastering computational problem-solving, algorithm formulation, syntax, flow control, and programming methodologies with academic distinction.',
+      highlights: [
+        'Certificate ID: 3173318028EG',
+        'Academic Distinction Grade: 92.00%',
+        'Total Hours in Course: 26 hours (2.6 Continuing Education Units)',
+        'Accredited by Saylor Academy & signed by Michael J Saylor'
+      ],
+      skills: ['Computer Science', 'Programming Fundamentals', 'Algorithms', 'Logic & Flow Control'],
+      verifyUrl: 'assets/certificates/saylor_cs101.pdf'
+    },
+    worldquant: {
+      tag: 'GLOBAL QUANT COMPETITION // STAGE 1 TOP 20% OF TEAMS',
+      title: 'International Quant Championship 2026: Stage 1 Recognition',
+      issuer: 'WorldQuant BRAIN',
+      date: '2026',
+      image: 'assets/certificates/worldquant_iqc2026.png',
+      pdf: 'assets/certificates/worldquant_iqc2026.pdf',
+      seal: '🧠',
+      desc: 'Official Certificate of Recognition awarded by WorldQuant BRAIN for advancing through Stage 1 of the prestigious International Quant Championship (IQC 2026) and ranking in the Top 20% of competitive quant teams globally.',
+      highlights: [
+        'Competitor / BRAIN ID: EG43839',
+        'Distinction: Stage 1 – 2026 | Top 20% of Teams Globally',
+        'Authorized and presented by Nitish Maini, Chief Strategy Officer of WorldQuant',
+        'Formulated & backtested algorithmic predictive alpha models across vast global financial matrices',
+        'Gold Level Tier quantitative researcher standing on the WorldQuant BRAIN platform'
+      ],
+      skills: ['Quantitative Modeling', 'Alpha Signals', 'Statistical Arbitrage', 'IQC 2026', 'Algorithmic Finance'],
+      verifyUrl: 'assets/certificates/worldquant_iqc2026.pdf'
+    },
+    lifearc: {
+      tag: 'VIRTUAL EXPERIENCE ACCREDITATION // LIFE SCIENCES RESEARCH',
+      title: 'Life Sciences: Biology Research Job Simulation',
+      issuer: 'LifeArc (via Forage)',
+      date: 'January 9th, 2026',
+      image: 'assets/certificates/lifearc_biology.png',
+      pdf: 'assets/certificates/lifearc_biology.pdf',
+      seal: '🧬',
+      desc: 'Certificate of completion awarded for completing practical industry-standard tasks in experimental condition optimization, biological data analysis, evidence synthesis, and collaborative scientific results presentation.',
+      highlights: [
+        'Enrolment Verification: jyoSYSExArWJwWbfB | User Verification: 578TzDefqBRPcdCHq',
+        'Practical tasks: Optimise experimental conditions & analyse data for optimal bio-parameters',
+        'Synthesising evidence, cross-functional collaboration, and professional presentation of results',
+        'Issued by Forage & signed by Tom Brunskill, CEO and Co-Founder'
+      ],
+      skills: ['Biology Research', 'Experimental Optimization', 'Data Analysis', 'Evidence Synthesis', 'Life Sciences'],
+      verifyUrl: 'assets/certificates/lifearc_biology.pdf'
+    },
+    pfizer: {
+      tag: 'PHARMACEUTICAL SIMULATION // PFIZER & FORAGE',
+      title: 'Molecule to Market Job Simulation',
+      issuer: 'Pfizer (via Forage)',
+      date: 'January 9th, 2026',
+      image: 'assets/certificates/pfizer_simulation.png',
+      pdf: 'assets/certificates/pfizer_simulation.pdf',
+      seal: '💊',
+      desc: 'Certificate of completion awarded for completing industry-grade practical workflows spanning the entire pharmaceutical molecule-to-market pipeline, health economics evaluations, market assessment, and go-to-market commercialization strategy.',
+      highlights: [
+        'Enrolment Verification: HN4vDBcirbCmSkygs | User Verification: 578TzDefqBRPcdCHq',
+        'Analyzed the full Molecule to Market Pathway across clinical stages and drug development',
+        'Evaluated Health Economics metrics and pharmacoeconomic value propositions',
+        'Formulated pharmaceutical marketing and Go-to-Market Strategy',
+        'Issued by Forage & signed by Tom Brunskill, CEO and Co-Founder'
+      ],
+      skills: ['Molecule to Market', 'Health Economics', 'Pharmaceutical Strategy', 'Go-to-Market', 'Drug Commercialization'],
+      verifyUrl: 'assets/certificates/pfizer_simulation.pdf'
+    },
+    uon: {
+      tag: 'ACADEMIC DEGREE CONFERRAL // UNIVERSITY OF NAIROBI',
+      title: 'B.Sc. Biochemistry & Molecular Biology',
+      issuer: 'University of Nairobi (Faculty of Science & Technology)',
+      date: 'Conferred 2024',
+      image: '',
+      seal: '🎓',
+      desc: 'Conferred Bachelor of Science in Biochemistry & Molecular Biology with specialized coursework in computational structural biology, enzymology, metabolic genetics, and molecular docking capstone research.',
+      highlights: [
+        'Conducted capstone in-silico research on natural organosulfur inhibitors against pathogenic fungal targets',
+        'Rigorous lab research in nucleic acid analysis and protein purification',
+        'Foundation for quantitative, data-driven computational life science applications'
+      ],
+      skills: ['Biochemistry', 'Molecular Biology', 'Genomics', 'In-Silico Research'],
+      verifyUrl: 'assets/docs/resume.pdf'
+    }
+  };
+
+  function openCertModal(certId) {
+    const data = certData[certId];
+    if (!data || !certBody || !certBackdrop) return;
+
+    const bannerHtml = data.image ? `
+      <div class="cert-preview-banner">
+        <img src="${data.image}" alt="${data.title} Certificate Preview" loading="lazy">
+      </div>
+    ` : `
+      <div class="cert-thumb-placeholder" style="height: 180px; border-radius: 10px; margin-bottom: 24px;">
+        <div class="cert-seal-icon">${data.seal}</div>
+        <div class="cert-brand-title">${data.title}</div>
+        <div class="cert-brand-sub">${data.issuer} &bull; ${data.date}</div>
+        <div class="cert-scanline"></div>
+      </div>
+    `;
+
+    certBody.innerHTML = `
+      <div class="modal-header-tag">// ${data.tag}</div>
+      <h3 class="modal-title">${data.title}</h3>
+      <div class="cert-meta" style="margin: 8px 0 20px;">
+        <span class="cert-issuer" style="font-size: 0.95rem;">${data.issuer}</span>
+        <span style="color: var(--text-dim); margin-left: 12px;">[ ${data.date} ]</span>
+      </div>
+
+      ${bannerHtml}
+
+      <div class="modal-info-box" style="margin-bottom: 20px;">
+        <h4>Credential Summary &amp; Scope</h4>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">${data.desc}</p>
+      </div>
+
+      <div class="modal-info-box" style="margin-bottom: 20px;">
+        <h4>Competencies &amp; Verification Proofs</h4>
+        <ul>
+          ${data.highlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <h4 style="font-family: var(--font-code); font-size: 0.84rem; color: var(--text-dim); margin-bottom: 10px;">// ACCREDITED SKILLS</h4>
+        <div class="stack-pills-wrap">
+          ${data.skills.map(s => `<span class="tech-pill">${s}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="modal-actions" style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-sub);">
+        <a href="${data.verifyUrl}" target="_blank" rel="noopener noreferrer" class="project-link">
+          Official Credential Record ↗
+        </a>
+      </div>
+    `;
+
+    certBackdrop.classList.add('open');
+    certBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCertModal() {
+    if (!certBackdrop) return;
+    certBackdrop.classList.remove('open');
+    certBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.cert-item, .btn-cert-view').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const certId = btn.getAttribute('data-cert') || btn.getAttribute('data-cert-id');
+      if (certId) openCertModal(certId);
+    });
+  });
+
+  if (certCloseBtn) certCloseBtn.addEventListener('click', closeCertModal);
+  if (certBackdrop) {
+    certBackdrop.addEventListener('click', e => {
+      if (e.target === certBackdrop) closeCertModal();
+    });
+  }
+
   /* ── 7. Power-User Command Palette (Ctrl + K) ────────────── */
   function openCmdPalette() {
     if (!cmdBackdrop) return;
@@ -833,6 +1064,8 @@
     } else if (e.key === 'Escape') {
       if (modalBackdrop && modalBackdrop.classList.contains('open')) {
         closeProjectModal();
+      } else if (certBackdrop && certBackdrop.classList.contains('open')) {
+        closeCertModal();
       } else if (cmdBackdrop && cmdBackdrop.classList.contains('open')) {
         closeCmdPalette();
       }
