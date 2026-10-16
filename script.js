@@ -166,9 +166,10 @@
   /* ── 3. Dynamic Terminal Typewriter Subtitle ─────────────── */
   if (typewriterEl) {
     const roles = [
+      'Full-Stack AI Developer',
       'AI Front-End Engineer // Flyrank AI',
-      'Full-Stack AI Engineer',
-      'Computational Biology Researcher // Molecular Docking',
+      'Modern Web Applications // Next.js & FastAPI',
+      'Computational Biology & Molecular Modeling',
       'Quantitative Researcher // WorldQuant IQC Top 20%',
       'BSc. Biochemistry // University of Nairobi'
     ];
@@ -528,22 +529,22 @@
       links: []
     },
     portfolio: {
-      tag: 'WEB ENGINEERING // VANILLA CYBER BIOTECH SYSTEM',
-      title: 'Cyber Biotech Developer Portfolio',
+      tag: 'FRONT-END WEB ENGINEERING // VANILLA JS & CSS ARCHITECTURE',
+      title: 'Personal Developer Portfolio & Web System',
       banner: 'assets/projects/portfolio.png',
-      desc: 'A custom, performance-engineered personal portfolio articulating the convergence of Biochemistry and Software Engineering. Features zero heavy runtime dependencies and custom HTML5 particle physics.',
-      problem: 'Generic portfolio templates fail to convey the unique intersection of computational molecular science and modern software engineering.',
+      desc: 'A custom, performance-engineered personal developer portfolio built with semantic HTML5, modern CSS custom properties, and modular vanilla JavaScript. Engineered with zero framework bloat, high-contrast dark aesthetics, subtle micro-interactions, and keyboard-driven navigation.',
+      problem: 'Generic website templates are bloated, slow, and fail to reflect real-world front-end engineering discipline or multi-disciplinary technical depth.',
       architecture: [
-        'HTML5 Semantic Architecture & Microdata markup',
-        'Vanilla CSS with custom tokens, glassmorphism, and responsive breakpoints',
-        'Interactive HTML5 Canvas particle network simulating synaptic molecular nodes',
-        'ES6+ JavaScript for 3D card tilt physics, Command Palette, and typewriter decrypt'
+        'Semantic HTML5 Architecture with SEO & OpenGraph microdata',
+        'Vanilla CSS design system with custom properties, glassmorphism, and responsive grid layouts',
+        'Interactive HTML5 Canvas particle network with smooth dynamic connection physics',
+        'ES6+ JavaScript for 3D card tilt physics, interactive modals, and Command Palette'
       ],
       features: [
-        'Command Palette (Ctrl + K) for rapid keyboard-driven navigation',
-        'Duotone holographic profile photo grading with continuous scanline sweeps',
-        'Dynamic Project Category Filter tabs for instantaneous browsing',
-        '100% responsive across mobile, tablet, and widescreen desktop displays'
+        'Command Palette (Ctrl + K) for rapid keyboard-driven site navigation',
+        'Interactive project and certificate lightbox inspection modals',
+        'Instant category filtering tabs without page reloads',
+        'Fully responsive across mobile, tablet, and widescreen desktop displays'
       ],
       links: []
     },
@@ -878,6 +879,270 @@
       ],
       skills: ['Biochemistry', 'Molecular Biology', 'Genomics', 'In-Silico Research'],
       verifyUrl: 'assets/docs/resume.pdf'
+    },
+    // Anthropic Academy Suite (16 Credentials)
+    claude_anthropic_api: {
+      tag: 'ANTHROPIC ACADEMY // CLAUDE API INTEGRATION',
+      title: 'Claude with the Anthropic API',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/claude_anthropic_api.png',
+      pdf: 'assets/certificates/anthropic/claude_anthropic_api.pdf',
+      seal: '🤖',
+      desc: 'Official Anthropic credential certifying end-to-end competency in building, testing, and deploying production LLM applications using the Claude API.',
+      highlights: [
+        'Issued directly by Anthropic Education',
+        'Mastery of Claude Messages API, system instructions, and token budgets',
+        'Structured JSON outputs and robust error recovery patterns'
+      ],
+      skills: ['Anthropic API', 'Claude 3.5 Sonnet', 'Function Calling', 'Token Optimization', 'Prompt Engineering'],
+      verifyUrl: 'assets/certificates/anthropic/claude_anthropic_api.pdf'
+    },
+    intro_model_context_protocol: {
+      tag: 'ANTHROPIC ACADEMY // MODEL CONTEXT PROTOCOL (MCP)',
+      title: 'Introduction to Model Context Protocol (MCP)',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/intro_model_context_protocol.png',
+      pdf: 'assets/certificates/anthropic/intro_model_context_protocol.pdf',
+      seal: '🔌',
+      desc: 'Engineering certification on building, configuring, and extending Model Context Protocol servers to connect Claude securely with local data, developer tools, and external services.',
+      highlights: [
+        'Open standard architecture for secure LLM tool & context exposure',
+        'Client-server JSON-RPC communication and dynamic resource routing',
+        'Production integration with development environments and IDEs'
+      ],
+      skills: ['Model Context Protocol (MCP)', 'Tool Routing', 'Client-Server Architecture', 'Context Protocol'],
+      verifyUrl: 'assets/certificates/anthropic/intro_model_context_protocol.pdf'
+    },
+    claude_code_in_action: {
+      tag: 'ANTHROPIC ACADEMY // CLAUDE CODE CLI',
+      title: 'Claude Code in Action',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/claude_code_in_action.png',
+      pdf: 'assets/certificates/anthropic/claude_code_in_action.pdf',
+      seal: '💻',
+      desc: 'Hands-on engineering certification demonstrating terminal-native agentic development, multi-file code editing, and repository refactoring using Claude Code.',
+      highlights: [
+        'Terminal-based agentic software development and command execution',
+        'Multi-file codebase reasoning, dependency tracking, and test execution',
+        'Autonomous debugging and Git commit workflows'
+      ],
+      skills: ['Claude Code CLI', 'Agentic Coding', 'Terminal Workflows', 'Refactoring', 'Git Integration'],
+      verifyUrl: 'assets/certificates/anthropic/claude_code_in_action.pdf'
+    },
+    intro_agent_skills: {
+      tag: 'ANTHROPIC ACADEMY // AUTONOMOUS AGENT ARCHITECTURE',
+      title: 'Introduction to Agent Skills',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/intro_agent_skills.png',
+      pdf: 'assets/certificates/anthropic/intro_agent_skills.pdf',
+      seal: '⚡',
+      desc: 'Certification in designing modular AI agent skills, defining tool schemas, managing subagent delegation, and orchestrating multi-step autonomous tasks.',
+      highlights: [
+        'Architecture of task-oriented autonomous agents',
+        'Structured tool definitions, schema validation, and parameter constraints',
+        'Multi-step decision trees and reactive execution workflows'
+      ],
+      skills: ['Agent Skills', 'Autonomous Agents', 'Tool Calling', 'Agentic Workflows', 'Multi-Step Execution'],
+      verifyUrl: 'assets/certificates/anthropic/intro_agent_skills.pdf'
+    },
+    ai_fluency_builders: {
+      tag: 'ANTHROPIC & CODEPATH // AI FOR BUILDERS',
+      title: 'AI Fluency for Builders',
+      issuer: 'Anthropic & CodePath.org',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_builders.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_builders.pdf',
+      seal: '🛠️',
+      desc: 'Practical software development credential awarded jointly by CodePath.org and Anthropic for architecting real-world AI software products and rapid prototypes.',
+      highlights: [
+        'Awarded jointly by CodePath.org and Anthropic',
+        'Rapid product prototyping using modern language models and developer toolkits',
+        'Translating human requirements into resilient AI-driven web architectures'
+      ],
+      skills: ['Full-Stack AI', 'CodePath.org', 'Rapid Prototyping', 'Product Engineering'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_builders.pdf'
+    },
+    claude_code_101: {
+      tag: 'ANTHROPIC ACADEMY // CLAUDE CODE CLI BASICS',
+      title: 'Claude Code 101',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/claude_code_101.png',
+      pdf: 'assets/certificates/anthropic/claude_code_101.pdf',
+      seal: '⌨️',
+      desc: 'Introductory developer certification for mastering Anthropic\'s agentic CLI tool, managing project context, and executing inline code modifications.',
+      highlights: [
+        'Installation, configuration, and security permissions for Claude Code CLI',
+        'Project context indexing and inline patch generation'
+      ],
+      skills: ['Claude Code', 'CLI Tools', 'Terminal Engineering', 'Developer Tooling'],
+      verifyUrl: 'assets/certificates/anthropic/claude_code_101.pdf'
+    },
+    claude_platform_101: {
+      tag: 'ANTHROPIC ACADEMY // PLATFORM CONSOLE & WORKBENCH',
+      title: 'Claude Platform 101',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/claude_platform_101.png',
+      pdf: 'assets/certificates/anthropic/claude_platform_101.pdf',
+      seal: '🎛️',
+      desc: 'Platform engineering certification on utilizing the Anthropic Console, Prompt Workbench, automated test evaluations, and API key management.',
+      highlights: [
+        'Anthropic Console administration and role-based access management',
+        'Interactive Prompt Workbench evaluation and temperature tuning',
+        'Prompt Optimizer usage for latency and cost reduction'
+      ],
+      skills: ['Anthropic Console', 'Prompt Workbench', 'Latency & Cost Optimization', 'API Keys'],
+      verifyUrl: 'assets/certificates/anthropic/claude_platform_101.pdf'
+    },
+    intro_claude_cowork: {
+      tag: 'ANTHROPIC ACADEMY // COLLABORATIVE AI',
+      title: 'Introduction to Claude Cowork',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/intro_claude_cowork.png',
+      pdf: 'assets/certificates/anthropic/intro_claude_cowork.pdf',
+      seal: '🤝',
+      desc: 'Certification on real-time human-AI collaboration, project ideation, dynamic document generation, and continuous iteration.',
+      highlights: [
+        'Iterative co-working strategies between engineers and models',
+        'Context preservation over long project sessions'
+      ],
+      skills: ['Collaborative AI', 'Pair Programming', 'Project Scaffolding', 'Workflow Iteration'],
+      verifyUrl: 'assets/certificates/anthropic/intro_claude_cowork.pdf'
+    },
+    claude_101: {
+      tag: 'ANTHROPIC ACADEMY // CLAUDE ECOSYSTEM FOUNDATIONS',
+      title: 'Claude 101',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/claude_101.png',
+      pdf: 'assets/certificates/anthropic/claude_101.pdf',
+      seal: '💡',
+      desc: 'Core foundation covering Anthropic\'s Claude ecosystem, constitutional AI design, context manipulation, and project knowledge integration.',
+      highlights: [
+        'Foundational understanding of Claude model capabilities and safety principles',
+        'Effective context structuring and prompt design fundamentals'
+      ],
+      skills: ['Claude Fundamentals', 'Prompt Design', 'Constitutional AI', 'Model Capabilities'],
+      verifyUrl: 'assets/certificates/anthropic/claude_101.pdf'
+    },
+    ai_fluency_capabilities: {
+      tag: 'ANTHROPIC ACADEMY // REASONING BOUNDARIES & LIMITATIONS',
+      title: 'AI Fluency: AI Capabilities & Limitations',
+      issuer: 'Anthropic Education',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_capabilities.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_capabilities.pdf',
+      seal: '🔬',
+      desc: 'Technical foundation analyzing Frontier LLM reasoning boundaries, context window limits, failure modes, and safety-critical mitigations.',
+      highlights: [
+        'Deep dive into hallucination detection and mitigation techniques',
+        'Probabilistic reasoning boundaries vs. deterministic computation',
+        'Context window degradation and memory management'
+      ],
+      skills: ['Model Boundaries', 'Hallucination Mitigation', 'Reasoning Analysis', 'Context Windows'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_capabilities.pdf'
+    },
+    ai_fluency_framework_foundations: {
+      tag: 'ANTHROPIC ACADEMY // AI FLUENCY CORE',
+      title: 'AI Fluency: Framework & Foundations',
+      issuer: 'Anthropic (with UCC & HEA)',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_framework_foundations.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_framework_foundations.pdf',
+      seal: '📚',
+      desc: 'Comprehensive overview of the AI Fluency conceptual architecture, critical appraisal of model outputs, and systematic generative workflows.',
+      highlights: [
+        'Accredited through Anthropic in partnership with UCC and HEA',
+        'Systematic prompt architecture and evaluation criteria'
+      ],
+      skills: ['AI Fluency', 'Framework Principles', 'Critical Appraisal', 'Generative Workflows'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_framework_foundations.pdf'
+    },
+    teaching_ai_fluency: {
+      tag: 'ANTHROPIC ACADEMY // AI PEDAGOGY',
+      title: 'Teaching the AI Fluency Framework',
+      issuer: 'Anthropic (with UCC & HEA)',
+      date: '2026',
+      image: 'assets/certificates/anthropic/teaching_ai_fluency.png',
+      pdf: 'assets/certificates/anthropic/teaching_ai_fluency.pdf',
+      seal: '🎓',
+      desc: 'Accreditation covering pedagogical strategies, evaluation standards, and methodologies for delivering comprehensive AI literacy.',
+      highlights: [
+        'Instructional methodologies for modern AI education',
+        'Standards for ethical and responsible AI adoption'
+      ],
+      skills: ['AI Pedagogy', 'Instructional Design', 'Literacy Frameworks', 'Ethics'],
+      verifyUrl: 'assets/certificates/anthropic/teaching_ai_fluency.pdf'
+    },
+    ai_fluency_small_businesses: {
+      tag: 'ANTHROPIC & PAYPAL // COMMERCIAL AI AUTOMATION',
+      title: 'AI Fluency for Small Businesses',
+      issuer: 'Anthropic & PayPal',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_small_businesses.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_small_businesses.pdf',
+      seal: '💼',
+      desc: 'Joint Anthropic and PayPal credential focusing on deploying generative AI to automate routine commercial operations and business workflows.',
+      highlights: [
+        'Commercial operations optimization with LLMs',
+        'Automated workflows and customer communication pipelines'
+      ],
+      skills: ['Business Automation', 'PayPal Collaboration', 'Commercial Workflows', 'Productivity'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_small_businesses.pdf'
+    },
+    ai_fluency_nonprofits: {
+      tag: 'ANTHROPIC & GIVINGTUESDAY // IMPACT AI',
+      title: 'AI Fluency for Nonprofits',
+      issuer: 'Anthropic & GivingTuesday',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_nonprofits.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_nonprofits.pdf',
+      seal: '🌱',
+      desc: 'Specialized training on applying language models to streamline nonprofit administration, impact reporting, and donor communications.',
+      highlights: [
+        'Partnership certification with GivingTuesday',
+        'Automated impact report structuring and operational workflows'
+      ],
+      skills: ['Impact AI', 'Nonprofit Operations', 'Workflow Automation', 'Reporting'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_nonprofits.pdf'
+    },
+    ai_fluency_educators: {
+      tag: 'ANTHROPIC ACADEMY // ACADEMIC AI INTEGRATION',
+      title: 'AI Fluency for Educators',
+      issuer: 'Anthropic (with UCC & HEA)',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_educators.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_educators.pdf',
+      seal: '📖',
+      desc: 'Specialized curriculum on adopting generative AI tools responsibly in educational environments and academic mentorship.',
+      highlights: [
+        'Collaborative credential with University College Cork (UCC) and Higher Education Authority (HEA)',
+        'Guidelines for student AI literacy and responsible tool usage'
+      ],
+      skills: ['Academic AI', 'Curriculum Integration', 'Student Mentorship', 'Ethics'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_educators.pdf'
+    },
+    ai_fluency_students: {
+      tag: 'ANTHROPIC ACADEMY // STUDENT RESEARCH & SYNTHESIS',
+      title: 'AI Fluency for Students',
+      issuer: 'Anthropic (with UCC & HEA)',
+      date: '2026',
+      image: 'assets/certificates/anthropic/ai_fluency_students.png',
+      pdf: 'assets/certificates/anthropic/ai_fluency_students.pdf',
+      seal: '🎒',
+      desc: 'Methodological training on leveraging conversational and reasoning models for research synthesis, note structuring, and academic acceleration.',
+      highlights: [
+        'Research synthesis and literature indexing methodologies',
+        'Accelerating academic workflows while maintaining critical rigor'
+      ],
+      skills: ['Research Synthesis', 'Academic Acceleration', 'Literature Indexing', 'Critical Thinking'],
+      verifyUrl: 'assets/certificates/anthropic/ai_fluency_students.pdf'
     }
   };
 
@@ -946,18 +1211,50 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.cert-item, .btn-cert-view').forEach(btn => {
-    btn.addEventListener('click', e => {
+  // Delegated or broad selector for all cert items (grid, carousel, drawer)
+  document.addEventListener('click', e => {
+    const certTrigger = e.target.closest('.cert-item, .btn-cert-view, .anthropic-card, .anthropic-drawer-item');
+    if (certTrigger) {
       e.preventDefault();
-      const certId = btn.getAttribute('data-cert') || btn.getAttribute('data-cert-id');
+      const certId = certTrigger.getAttribute('data-cert') || certTrigger.getAttribute('data-cert-id');
       if (certId) openCertModal(certId);
-    });
+    }
   });
 
   if (certCloseBtn) certCloseBtn.addEventListener('click', closeCertModal);
   if (certBackdrop) {
     certBackdrop.addEventListener('click', e => {
       if (e.target === certBackdrop) closeCertModal();
+    });
+  }
+
+  /* ── 6.6 Anthropic Track Carousel & Drawer Controls ──────── */
+  const anthropicCarousel  = document.getElementById('anthropic-carousel');
+  const anthropicPrevBtn   = document.getElementById('anthropic-prev');
+  const anthropicNextBtn   = document.getElementById('anthropic-next');
+  const anthropicToggleBtn = document.getElementById('anthropic-toggle-list');
+  const anthropicDrawer    = document.getElementById('anthropic-drawer');
+
+  if (anthropicCarousel && anthropicPrevBtn && anthropicNextBtn) {
+    anthropicPrevBtn.addEventListener('click', () => {
+      const scrollAmt = Math.max(anthropicCarousel.clientWidth * 0.75, 280);
+      anthropicCarousel.scrollBy({ left: -scrollAmt, behavior: 'smooth' });
+    });
+
+    anthropicNextBtn.addEventListener('click', () => {
+      const scrollAmt = Math.max(anthropicCarousel.clientWidth * 0.75, 280);
+      anthropicCarousel.scrollBy({ left: scrollAmt, behavior: 'smooth' });
+    });
+  }
+
+  if (anthropicToggleBtn && anthropicDrawer) {
+    anthropicToggleBtn.addEventListener('click', () => {
+      const isOpen = anthropicDrawer.classList.toggle('open');
+      anthropicToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      const toggleText = anthropicToggleBtn.querySelector('.toggle-text');
+      const toggleIcon = anthropicToggleBtn.querySelector('.toggle-icon');
+      if (toggleText) toggleText.textContent = isOpen ? 'Collapse List View' : 'View All 16 List';
+      if (toggleIcon) toggleIcon.innerHTML = isOpen ? '&#9652;' : '&#9662;';
     });
   }
 

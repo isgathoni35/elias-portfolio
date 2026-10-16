@@ -2132,6 +2132,348 @@ img { display: block; max-width: 100%; }
   padding-bottom: 40px;
 }
 
+/* ── 15.1 Anthropic Academy Specialization Track ──────────── */
+.anthropic-track-container {
+  background: rgba(15, 23, 32, 0.75);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  margin-bottom: 48px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(16, 185, 129, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.anthropic-track-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-light), transparent);
+}
+
+.anthropic-track-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.anthropic-track-title-wrap {
+  flex: 1;
+  min-width: 280px;
+}
+
+.anthropic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 9999px;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+
+.anthropic-track-title {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.anthropic-track-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  max-width: 680px;
+}
+
+.anthropic-track-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.carousel-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.carousel-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #080d14;
+  border: 1px solid var(--border-sub);
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.carousel-nav-btn:hover {
+  background: var(--accent);
+  color: #080c10;
+  border-color: var(--accent);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.anthropic-toggle-list-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #080d14;
+  border: 1px solid var(--border-sub);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.anthropic-toggle-list-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+/* Horizontal Carousel */
+.anthropic-carousel-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.anthropic-carousel {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 6px 2px 14px 2px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.anthropic-carousel::-webkit-scrollbar {
+  height: 6px;
+}
+.anthropic-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+}
+.anthropic-carousel::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.35);
+  border-radius: 3px;
+}
+.anthropic-carousel::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.anthropic-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: rgba(8, 12, 16, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.anthropic-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 0 16px var(--accent-glow-sub);
+}
+
+.anthropic-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  background: #06090e;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-sub);
+}
+
+.anthropic-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s var(--ease);
+}
+
+.anthropic-card:hover .anthropic-card-img img {
+  transform: scale(1.04);
+}
+
+.anthropic-card-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: var(--font-code);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  background: rgba(8, 12, 16, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-weight: 600;
+}
+
+.anthropic-card-info {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.anthropic-card-info h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.anthropic-card-meta {
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+/* Expandable Drawer */
+.anthropic-drawer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.anthropic-drawer.open {
+  max-height: 1400px;
+  opacity: 1;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-sub);
+}
+
+.anthropic-drawer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.anthropic-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(8, 12, 16, 0.6);
+  border: 1px solid var(--border-sub);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.anthropic-drawer-item:hover {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--accent);
+  transform: translateX(3px);
+}
+
+.drawer-badge {
+  font-family: var(--font-code);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.drawer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.drawer-text strong {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-text span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-arrow {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.anthropic-drawer-item:hover .drawer-arrow {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+
+.certs-subheading {
+  margin-bottom: 20px;
+}
+
+.certs-subheading h3 {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .anthropic-track-container {
+    padding: 20px 16px 18px;
+  }
+  .anthropic-card {
+    flex: 0 0 240px;
+  }
+  .anthropic-drawer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
